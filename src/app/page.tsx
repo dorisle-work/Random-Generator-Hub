@@ -3,6 +3,9 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroSearch from "@/components/HeroSearch";
+import {
+  IconWheel, IconUser, IconHash, IconTeam, IconYesNo, IconCoin,
+} from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "Pick easy — Random anything, instantly.",
@@ -12,62 +15,56 @@ export const metadata: Metadata = {
 
 const tools = [
   {
-    emoji: "🎡",
+    Icon: IconWheel,
     name: "Spin the Wheel",
     desc: "Add your choices and spin for a random winner",
     href: "/spin-the-wheel",
     badge: "HOT",
-    accentBg: "rgba(199,244,61,0.12)",
   },
   {
-    emoji: "🎯",
+    Icon: IconUser,
     name: "Random Name Picker",
     desc: "Pick a random name from your list instantly",
     href: "/random-name-picker",
     badge: "HOT",
-    accentBg: "rgba(199,244,61,0.08)",
   },
   {
-    emoji: "🔢",
+    Icon: IconHash,
     name: "Number Generator",
     desc: "Generate random numbers in any range",
     href: "/random-number-generator",
     badge: null,
-    accentBg: "rgba(199,244,61,0.06)",
   },
   {
-    emoji: "👥",
+    Icon: IconTeam,
     name: "Team Generator",
     desc: "Split people into random balanced teams",
     href: "/random-team-generator",
     badge: null,
-    accentBg: "rgba(199,244,61,0.06)",
   },
   {
-    emoji: "✅",
+    Icon: IconYesNo,
     name: "Yes or No",
-    desc: "Get a quick yes or no decision",
+    desc: "Get a quick yes or no answer to any question",
     href: "/yes-or-no",
     badge: "NEW",
-    accentBg: "rgba(199,244,61,0.08)",
   },
   {
-    emoji: "🪙",
+    Icon: IconCoin,
     name: "Coin Flip",
     desc: "Flip a coin for heads or tails",
     href: "/coin-flip",
     badge: null,
-    accentBg: "rgba(199,244,61,0.06)",
   },
 ];
 
 const categories = [
-  { emoji: "🎡", name: "Random Picker",     desc: "Wheels, names, numbers, teams" },
-  { emoji: "📚", name: "Education",          desc: "For teachers and classrooms" },
-  { emoji: "🎮", name: "Entertainment",      desc: "Games, food, movies" },
-  { emoji: "🎨", name: "Creative & Dev",     desc: "Colors, passwords, UUIDs" },
-  { emoji: "💼", name: "Productivity",       desc: "Teams, tasks, icebreakers" },
-  { emoji: "✨", name: "Fun Generators",     desc: "Animals, superpowers, stories" },
+  { label: "Random Picker",  desc: "Wheel, names, numbers" },
+  { label: "Education",      desc: "Teachers & classrooms" },
+  { label: "Entertainment",  desc: "Games, food, movies" },
+  { label: "Creative & Dev", desc: "Colors, passwords, UUIDs" },
+  { label: "Productivity",   desc: "Teams, tasks, icebreakers" },
+  { label: "Fun",            desc: "Animals, superpowers, stories" },
 ];
 
 export default function Home() {
@@ -75,245 +72,268 @@ export default function Home() {
     <>
       <Header />
       <main>
-        {/* Hero */}
-        <section style={{
-          padding: "72px 24px 60px",
-          textAlign: "center",
-          position: "relative",
-          overflow: "hidden",
-        }}>
-          {/* Lime blob decorations */}
+
+        {/* ── Hero ───────────────────────────────────────────── */}
+        <section style={{ padding: "64px 24px 48px", position: "relative", overflow: "hidden" }}>
+          {/* subtle lime glow */}
           <div style={{
-            position: "absolute", top: -80, right: -80, width: 400, height: 400,
+            position: "absolute", top: -100, right: -80, width: 500, height: 500,
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(199,244,61,0.18) 0%, transparent 70%)",
-            pointerEvents: "none",
-          }} />
-          <div style={{
-            position: "absolute", bottom: -40, left: -60, width: 300, height: 300,
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(199,244,61,0.1) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(199,244,61,0.22) 0%, transparent 65%)",
             pointerEvents: "none",
           }} />
 
-          <div style={{ position: "relative", maxWidth: 680, margin: "0 auto" }}>
-            {/* easy badge */}
+          <div style={{ maxWidth: 640, margin: "0 auto", textAlign: "center", position: "relative" }}>
+
+            {/* eyebrow badge */}
             <div style={{
-              display: "inline-flex", alignItems: "center", gap: 8,
+              display: "inline-flex", alignItems: "center", gap: 6,
               background: "#C7F43D",
               borderRadius: "999px",
-              padding: "5px 14px 5px 8px",
-              fontSize: "0.78rem",
-              fontWeight: 700,
-              color: "#161713",
-              marginBottom: 28,
+              padding: "4px 14px 4px 6px",
+              marginBottom: 24,
             }}>
               <span style={{
                 background: "#161713", color: "#C7F43D",
-                borderRadius: "999px", padding: "2px 8px", fontSize: "0.72rem",
+                borderRadius: "999px", padding: "2px 9px",
+                fontSize: "0.7rem", fontWeight: 800,
               }}>easy</span>
-              tools · Free · No signup
+              <span style={{ fontSize: "0.78rem", fontWeight: 600, color: "#161713" }}>
+                tools · Free · No signup
+              </span>
             </div>
 
+            {/* Heading */}
             <h1 style={{
-              fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
+              fontSize: "clamp(2rem, 4.5vw, 3.2rem)",
               fontWeight: 800,
-              lineHeight: 1.12,
+              lineHeight: 1.15,
               letterSpacing: "-0.03em",
-              marginBottom: 18,
               color: "var(--text)",
+              marginBottom: 16,
             }}>
               Random anything,{" "}
-              <span style={{
+              <mark style={{
                 background: "#C7F43D",
-                borderRadius: "8px",
-                padding: "0 8px",
                 color: "#161713",
-                display: "inline-block",
+                borderRadius: "6px",
+                padding: "0 6px",
+                fontStyle: "normal",
               }}>
                 instantly.
-              </span>
+              </mark>
             </h1>
 
+            {/* Subheading */}
             <p style={{
-              fontSize: "1.1rem",
+              fontSize: "1rem",
               color: "var(--text-muted)",
-              lineHeight: 1.7,
-              marginBottom: 36,
-              maxWidth: 500,
-              margin: "0 auto 36px",
+              lineHeight: 1.65,
+              maxWidth: 480,
+              margin: "0 auto 32px",
+              fontWeight: 400,
             }}>
-              Your favourite random generator tools in one place. Free, fast, and no account needed.
+              Your favourite random generator tools in one place —
+              free, fast, and no account needed.
             </p>
 
             <HeroSearch />
 
-            {/* Quick chips */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center", marginTop: 16 }}>
-              <span style={{ fontSize: "0.82rem", color: "var(--text-muted)", alignSelf: "center" }}>Try:</span>
+            {/* quick chips */}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center", marginTop: 14 }}>
+              <span style={{ fontSize: "0.8rem", color: "var(--text-muted)", alignSelf: "center" }}>Try:</span>
               {["Spin Wheel", "Name Picker", "Coin Flip"].map((t) => (
-                <span key={t} className="chip active" style={{ fontSize: "0.8rem" }}>{t}</span>
+                <span key={t} className="chip active" style={{ fontSize: "0.78rem" }}>{t}</span>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Tools Grid */}
-        <section id="tools" style={{ padding: "0 24px 64px", maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 28 }}>
-            <h2 style={{ fontSize: "1.5rem", fontWeight: 800, color: "var(--text)", letterSpacing: "-0.02em" }}>
+        {/* ── Tools Grid ─────────────────────────────────────── */}
+        <section id="tools" style={{ padding: "0 24px 56px", maxWidth: 1200, margin: "0 auto" }}>
+
+          {/* Section header */}
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
+            <h2 style={{
+              fontSize: "1.1rem",
+              fontWeight: 700,
+              color: "var(--text)",
+              letterSpacing: "-0.01em",
+            }}>
               Popular Tools
             </h2>
             <span style={{
               background: "#C7F43D", color: "#161713",
               borderRadius: "999px", padding: "2px 10px",
-              fontSize: "0.72rem", fontWeight: 800,
+              fontSize: "0.7rem", fontWeight: 800,
             }}>
-              {tools.length} free tools
+              {tools.length} free
             </span>
           </div>
 
+          {/* Grid */}
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-            gap: 16,
+            gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+            gap: 14,
           }}>
-            {tools.map((tool, i) => (
+            {tools.map(({ Icon, name, desc, href, badge }, i) => (
               <Link
-                key={tool.href}
-                href={tool.href}
+                key={href}
+                href={href}
                 className="tool-card"
-                style={{ animationDelay: `${i * 0.06}s` }}
+                style={{ animationDelay: `${i * 0.05}s` }}
               >
+                {/* icon + badge row */}
                 <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
                   <div style={{
-                    width: 48, height: 48,
+                    width: 44, height: 44,
                     borderRadius: "var(--radius-sm)",
-                    background: tool.accentBg,
+                    background: "rgba(199,244,61,0.1)",
                     border: "1.5px solid rgba(199,244,61,0.3)",
                     display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: 24, flexShrink: 0,
+                    flexShrink: 0,
+                    color: "#5a7a00",
                   }}>
-                    {tool.emoji}
+                    <Icon size={22} strokeWidth={1.8} color="currentColor" />
                   </div>
-                  {tool.badge && (
-                    <span className={`badge badge-${tool.badge === "HOT" ? "hot" : "new"}`}>
-                      {tool.badge}
+                  {badge && (
+                    <span className={`badge badge-${badge === "HOT" ? "hot" : "new"}`}>
+                      {badge}
                     </span>
                   )}
                 </div>
+
+                {/* text */}
                 <div>
-                  <h3 style={{ fontWeight: 700, fontSize: "0.97rem", color: "var(--text)", marginBottom: 4, letterSpacing: "-0.01em" }}>
-                    {tool.name}
+                  <h3 style={{
+                    fontWeight: 700,
+                    fontSize: "0.92rem",
+                    color: "var(--text)",
+                    marginBottom: 3,
+                    letterSpacing: "-0.01em",
+                  }}>
+                    {name}
                   </h3>
-                  <p style={{ fontSize: "0.84rem", color: "var(--text-muted)", lineHeight: 1.5 }}>
-                    {tool.desc}
+                  <p style={{
+                    fontSize: "0.82rem",
+                    color: "var(--text-muted)",
+                    lineHeight: 1.5,
+                    fontWeight: 400,
+                  }}>
+                    {desc}
                   </p>
                 </div>
-                <div style={{
-                  display: "flex", alignItems: "center", gap: 4,
-                  fontSize: "0.8rem", fontWeight: 700,
+
+                <span style={{
+                  fontSize: "0.78rem",
+                  fontWeight: 600,
                   color: "var(--text-muted)",
-                  marginTop: 4,
                 }}>
                   Try now →
-                </div>
+                </span>
               </Link>
             ))}
           </div>
         </section>
 
-        {/* Categories */}
+        {/* ── Categories ─────────────────────────────────────── */}
         <section id="categories" style={{
-          padding: "40px 24px 64px",
+          padding: "40px 24px 56px",
           background: "var(--bg-elevated)",
         }}>
           <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-            <div style={{ marginBottom: 32 }}>
-              <h2 style={{ fontSize: "1.5rem", fontWeight: 800, color: "var(--text)", letterSpacing: "-0.02em", marginBottom: 6 }}>
+
+            <div style={{ marginBottom: 24 }}>
+              <h2 style={{
+                fontSize: "1.1rem",
+                fontWeight: 700,
+                color: "var(--text)",
+                letterSpacing: "-0.01em",
+                marginBottom: 4,
+              }}>
                 Browse by Category
               </h2>
-              <p style={{ color: "var(--text-muted)", fontSize: "0.88rem" }}>
+              <p style={{ fontSize: "0.83rem", color: "var(--text-muted)", fontWeight: 400 }}>
                 Find the perfect tool for every occasion
               </p>
             </div>
 
             <div style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(175px, 1fr))",
-              gap: 14,
+              gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
+              gap: 12,
             }}>
               {categories.map((cat) => (
-                <div key={cat.name} className="easy-card" style={{ padding: "18px 16px", cursor: "pointer" }}>
-                  <div style={{
-                    width: 40, height: 40,
-                    borderRadius: "var(--radius-sm)",
-                    background: "rgba(199,244,61,0.12)",
-                    border: "1.5px solid rgba(199,244,61,0.25)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: 20, marginBottom: 10,
+                <div key={cat.label} className="easy-card" style={{
+                  padding: "16px",
+                  cursor: "pointer",
+                }}>
+                  <h3 style={{
+                    fontWeight: 700,
+                    fontSize: "0.85rem",
+                    color: "var(--text)",
+                    marginBottom: 3,
+                    letterSpacing: "-0.01em",
                   }}>
-                    {cat.emoji}
-                  </div>
-                  <h3 style={{ fontWeight: 700, fontSize: "0.88rem", color: "var(--text)", marginBottom: 3, letterSpacing: "-0.01em" }}>
-                    {cat.name}
+                    {cat.label}
                   </h3>
-                  <p style={{ fontSize: "0.76rem", color: "var(--text-muted)", lineHeight: 1.4 }}>{cat.desc}</p>
+                  <p style={{ fontSize: "0.75rem", color: "var(--text-muted)", lineHeight: 1.4, fontWeight: 400 }}>
+                    {cat.desc}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Banner — Easy style */}
+        {/* ── CTA ────────────────────────────────────────────── */}
         <section style={{ padding: "40px 24px 20px", maxWidth: 1200, margin: "0 auto" }}>
           <div style={{
             background: "#C7F43D",
             borderRadius: "var(--radius-lg)",
-            padding: "48px 40px",
+            padding: "40px 36px",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             flexWrap: "wrap",
-            gap: 24,
+            gap: 20,
             position: "relative",
             overflow: "hidden",
           }}>
             <div style={{
-              position: "absolute", top: -30, right: 80, width: 180, height: 180,
-              borderRadius: "50%",
+              position: "absolute", top: -40, right: 60,
+              width: 160, height: 160, borderRadius: "50%",
               background: "rgba(22,23,19,0.06)",
             }} />
             <div>
               <h2 style={{
-                color: "#161713", fontSize: "clamp(1.4rem, 3vw, 2rem)",
-                fontWeight: 800, marginBottom: 8, letterSpacing: "-0.03em",
+                color: "#161713",
+                fontSize: "1.5rem",
+                fontWeight: 800,
+                letterSpacing: "-0.03em",
+                marginBottom: 6,
               }}>
                 Có cách dễ hơn mà. 🎲
               </h2>
-              <p style={{ color: "rgba(22,23,19,0.65)", fontSize: "0.95rem" }}>
+              <p style={{ color: "rgba(22,23,19,0.6)", fontSize: "0.88rem", fontWeight: 400 }}>
                 Pick a tool and let randomness make your decision.
               </p>
             </div>
             <Link href="/spin-the-wheel" style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              background: "#161713",
-              color: "#C7F43D",
-              padding: "14px 28px",
+              display: "inline-flex", alignItems: "center", gap: 8,
+              background: "#161713", color: "#C7F43D",
+              padding: "12px 24px",
               borderRadius: "var(--radius-md)",
-              fontWeight: 700,
-              textDecoration: "none",
-              fontSize: "0.95rem",
-              flexShrink: 0,
-              transition: "transform 0.18s",
-              position: "relative",
+              fontWeight: 700, fontSize: "0.88rem",
+              textDecoration: "none", flexShrink: 0,
+              transition: "opacity 0.18s",
             }}>
-              🎡 Spin the Wheel
+              Spin the Wheel →
             </Link>
           </div>
         </section>
+
       </main>
       <Footer />
     </>

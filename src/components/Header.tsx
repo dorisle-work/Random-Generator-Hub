@@ -29,11 +29,11 @@ export default function Header() {
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (saved === "dark" || (!saved && prefersDark)) {
+    if (saved === "dark") {
       setDark(true);
       document.documentElement.classList.add("dark");
     }
+    // Default is always light — no prefers-color-scheme auto
   }, []);
 
   const toggleTheme = () => {

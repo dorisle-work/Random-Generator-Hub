@@ -55,7 +55,24 @@ body {
   transition: background-color 0.3s, color 0.3s;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  font-size: 16px;   /* base = 1rem */
+  line-height: 1.5;
 }
+
+/* ─── Type Scale ───────────────────────────────────────────── */
+/* Hero    : 2–3.2rem  800  */
+/* Section : 1.1rem    700  */
+/* Card h3 : 0.92rem   700  */
+/* Body    : 0.88rem   400  */
+/* Small   : 0.78rem   400–600 */
+/* Note: set directly in JSX; this enforces browser defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+p { line-height: 1.6; margin: 0; }
+a { color: inherit; }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
