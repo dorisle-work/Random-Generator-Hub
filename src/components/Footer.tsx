@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function EasySymbol() {
   return (
-    <svg width="20" height="20" viewBox="0 0 128 128" aria-hidden="true">
+    <svg width="24" height="24" viewBox="0 0 128 128" aria-hidden="true">
       <rect width="128" height="128" rx="32" fill="#C7F43D" />
       <path
         fill="#161713"
@@ -35,26 +35,26 @@ export default function Footer() {
     <footer style={{
       background: "var(--bg-elevated)",
       borderTop: "1px solid var(--border)",
-      padding: "48px 24px 28px",
-      marginTop: 80,
+      padding: "56px 24px 36px",
+      marginTop: 88,
     }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <div style={{ maxWidth: 1240, margin: "0 auto" }}>
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-          gap: 40,
-          marginBottom: 40,
+          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+          gap: 48,
+          marginBottom: 48,
         }}>
           {/* Brand */}
           <div>
-            <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
+            <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
               <EasySymbol />
-              <span style={{ fontWeight: 800, fontSize: "0.95rem", color: "var(--text)", letterSpacing: "-0.02em" }}>
-                Pick <span style={{ color: "#C7F43D", WebkitTextStroke: "0.5px #161713" }}>easy</span>
+              <span style={{ fontWeight: 800, fontSize: "1.2rem", color: "var(--text)", letterSpacing: "-0.02em" }}>
+                Pick <span style={{ color: "#8ab800", WebkitTextStroke: "0.5px currentColor" }}>easy</span>
               </span>
             </Link>
-            <p style={{ color: "var(--text-muted)", fontSize: "0.84rem", lineHeight: 1.65, maxWidth: 220, marginBottom: 12 }}>
-              Free random generator tools. Part of the easy ecosystem.
+            <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6, maxWidth: 260, marginBottom: 16 }}>
+              Free random decision and generation tools. Part of the easy ecosystem.
             </p>
             <a
               href="https://easy.io.vn"
@@ -63,12 +63,12 @@ export default function Footer() {
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: 6,
+                gap: 8,
                 background: "#C7F43D",
                 color: "#161713",
-                padding: "6px 12px",
+                padding: "8px 16px",
                 borderRadius: "999px",
-                fontSize: "0.75rem",
+                fontSize: "0.85rem",
                 fontWeight: 700,
                 textDecoration: "none",
                 transition: "opacity 0.18s",
@@ -81,15 +81,15 @@ export default function Footer() {
 
           {/* Tools */}
           <div>
-            <h3 style={{ fontWeight: 700, fontSize: "0.82rem", marginBottom: 14, color: "var(--text)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+            <h3 style={{ fontWeight: 700, fontSize: "0.95rem", marginBottom: 16, color: "var(--text)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
               Tools
             </h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {tools.map((t) => (
                 <Link key={t.href} href={t.href} style={{
                   color: "var(--text-muted)",
                   textDecoration: "none",
-                  fontSize: "0.88rem",
+                  fontSize: "0.95rem",
                   fontWeight: 500,
                   transition: "color 0.18s",
                 }}>
@@ -101,10 +101,10 @@ export default function Footer() {
 
           {/* easy ecosystem */}
           <div>
-            <h3 style={{ fontWeight: 700, fontSize: "0.82rem", marginBottom: 14, color: "var(--text)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+            <h3 style={{ fontWeight: 700, fontSize: "0.95rem", marginBottom: 16, color: "var(--text)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
               easy ecosystem
             </h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {[
                 { name: "easy.io.vn", href: "https://easy.io.vn", tag: "Hub" },
                 { name: "game.easy", href: "https://game.easy.io.vn", tag: "Games" },
@@ -113,20 +113,21 @@ export default function Footer() {
                 <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" style={{
                   color: "var(--text-muted)",
                   textDecoration: "none",
-                  fontSize: "0.88rem",
+                  fontSize: "0.95rem",
                   fontWeight: 500,
                   display: "flex",
                   alignItems: "center",
-                  gap: 6,
+                  gap: 8,
                 }}>
                   {l.name}
                   <span style={{
-                    fontSize: "0.65rem",
+                    fontSize: "0.72rem",
                     background: "var(--bg)",
                     border: "1px solid var(--border)",
                     borderRadius: "4px",
-                    padding: "1px 5px",
+                    padding: "2px 6px",
                     color: "var(--text-muted)",
+                    fontWeight: 600,
                   }}>{l.tag}</span>
                 </a>
               ))}
@@ -135,10 +136,10 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 style={{ fontWeight: 700, fontSize: "0.82rem", marginBottom: 14, color: "var(--text)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+            <h3 style={{ fontWeight: 700, fontSize: "0.95rem", marginBottom: 16, color: "var(--text)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
               Info
             </h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {[
                 { name: "About", href: "/about" },
                 { name: "Privacy Policy", href: "/privacy" },
@@ -147,7 +148,7 @@ export default function Footer() {
                 <Link key={l.href} href={l.href} style={{
                   color: "var(--text-muted)",
                   textDecoration: "none",
-                  fontSize: "0.88rem",
+                  fontSize: "0.95rem",
                   fontWeight: 500,
                 }}>
                   {l.name}
@@ -159,20 +160,20 @@ export default function Footer() {
 
         <div style={{
           borderTop: "1px solid var(--border)",
-          paddingTop: 20,
+          paddingTop: 24,
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
           flexWrap: "wrap",
-          gap: 12,
+          gap: 14,
         }}>
-          <p style={{ color: "var(--text-muted)", fontSize: "0.78rem" }}>
+          <p style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>
             © {new Date().getFullYear()} easy.io.vn — Dễ hơn mỗi ngày.
           </p>
-          <p style={{ color: "var(--text-muted)", fontSize: "0.78rem" }}>
+          <p style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>
             Pick easy is part of the{" "}
             <a href="https://easy.io.vn" target="_blank" rel="noopener noreferrer"
-              style={{ color: "#C7F43D", fontWeight: 700, textDecoration: "none" }}>
+              style={{ color: "#8ab800", fontWeight: 700, textDecoration: "none" }}>
               easy
             </a>
             {" "}ecosystem

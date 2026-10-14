@@ -75,3 +75,11 @@ export function IconCoin({ size = 24, strokeWidth = 1.8, color = "currentColor" 
     <path d="M12 7v10M9.5 9.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 2.5-5 2.5-5 5 0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5" />
   </>);
 }
+
+export function IconSearch({ size = 20, strokeWidth = 1.8, color = "currentColor" }: IconProps) {
+  return base(size, color, strokeWidth, <>
+    <circle cx="11" cy="11" r="7" />
+    <line x1="16.5" y1="16.5" x2="21" y2="21" />
+  </>);
+}
+
