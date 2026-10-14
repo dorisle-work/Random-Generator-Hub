@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
-import HeroSearch from "@/components/HeroSearch";
 import Footer from "@/components/Footer";
+import HeroSearch from "@/components/HeroSearch";
 
 export const metadata: Metadata = {
-  title: "Random Generator Hub — Random anything, instantly.",
+  title: "Pick easy — Random anything, instantly.",
   description:
-    "Free online random generator tools. Spin the Wheel, Random Name Picker, Number Generator, Team Generator, Coin Flip & more. No signup required.",
+    "Free random generator tools by easy. Spin the Wheel, Random Name Picker, Number Generator, Team Generator, Coin Flip & more. No signup required.",
 };
 
 const tools = [
@@ -17,8 +17,7 @@ const tools = [
     desc: "Add your choices and spin for a random winner",
     href: "/spin-the-wheel",
     badge: "HOT",
-    color: "#635BFF",
-    bg: "rgba(99,91,255,0.08)",
+    accentBg: "rgba(199,244,61,0.12)",
   },
   {
     emoji: "🎯",
@@ -26,8 +25,7 @@ const tools = [
     desc: "Pick a random name from your list instantly",
     href: "/random-name-picker",
     badge: "HOT",
-    color: "#EC4899",
-    bg: "rgba(236,72,153,0.08)",
+    accentBg: "rgba(199,244,61,0.08)",
   },
   {
     emoji: "🔢",
@@ -35,8 +33,7 @@ const tools = [
     desc: "Generate random numbers in any range",
     href: "/random-number-generator",
     badge: null,
-    color: "#10B981",
-    bg: "rgba(16,185,129,0.08)",
+    accentBg: "rgba(199,244,61,0.06)",
   },
   {
     emoji: "👥",
@@ -44,17 +41,15 @@ const tools = [
     desc: "Split people into random balanced teams",
     href: "/random-team-generator",
     badge: null,
-    color: "#F59E0B",
-    bg: "rgba(245,158,11,0.08)",
+    accentBg: "rgba(199,244,61,0.06)",
   },
   {
     emoji: "✅",
-    name: "Yes or No Generator",
+    name: "Yes or No",
     desc: "Get a quick yes or no decision",
     href: "/yes-or-no",
     badge: "NEW",
-    color: "#3B82F6",
-    bg: "rgba(59,130,246,0.08)",
+    accentBg: "rgba(199,244,61,0.08)",
   },
   {
     emoji: "🪙",
@@ -62,18 +57,17 @@ const tools = [
     desc: "Flip a coin for heads or tails",
     href: "/coin-flip",
     badge: null,
-    color: "#8B5CF6",
-    bg: "rgba(139,92,246,0.08)",
+    accentBg: "rgba(199,244,61,0.06)",
   },
 ];
 
 const categories = [
-  { emoji: "🎡", name: "Random Picker", desc: "Wheels, names, numbers, teams", color: "#635BFF" },
-  { emoji: "📚", name: "Education", desc: "For teachers and classrooms", color: "#10B981" },
-  { emoji: "🎮", name: "Entertainment", desc: "Games, food, movies", color: "#F59E0B" },
-  { emoji: "🎨", name: "Creative & Dev", desc: "Colors, passwords, UUIDs", color: "#EC4899" },
-  { emoji: "💼", name: "Productivity", desc: "Teams, tasks, icebreakers", color: "#3B82F6" },
-  { emoji: "✨", name: "Fun Generators", desc: "Animals, superpowers, stories", color: "#8B5CF6" },
+  { emoji: "🎡", name: "Random Picker",     desc: "Wheels, names, numbers, teams" },
+  { emoji: "📚", name: "Education",          desc: "For teachers and classrooms" },
+  { emoji: "🎮", name: "Entertainment",      desc: "Games, food, movies" },
+  { emoji: "🎨", name: "Creative & Dev",     desc: "Colors, passwords, UUIDs" },
+  { emoji: "💼", name: "Productivity",       desc: "Teams, tasks, icebreakers" },
+  { emoji: "✨", name: "Fun Generators",     desc: "Animals, superpowers, stories" },
 ];
 
 export default function Home() {
@@ -83,90 +77,106 @@ export default function Home() {
       <main>
         {/* Hero */}
         <section style={{
-          background: "linear-gradient(160deg, rgba(99,91,255,0.06) 0%, rgba(196,242,227,0.08) 50%, rgba(255,207,112,0.06) 100%)",
-          padding: "80px 24px 64px",
+          padding: "72px 24px 60px",
           textAlign: "center",
           position: "relative",
           overflow: "hidden",
         }}>
-          {/* Decorative blobs */}
+          {/* Lime blob decorations */}
           <div style={{
-            position: "absolute", top: -60, right: -60, width: 300, height: 300,
+            position: "absolute", top: -80, right: -80, width: 400, height: 400,
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(99,91,255,0.15), transparent 70%)",
+            background: "radial-gradient(circle, rgba(199,244,61,0.18) 0%, transparent 70%)",
             pointerEvents: "none",
           }} />
           <div style={{
-            position: "absolute", bottom: -40, left: -40, width: 250, height: 250,
+            position: "absolute", bottom: -40, left: -60, width: 300, height: 300,
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(255,207,112,0.15), transparent 70%)",
+            background: "radial-gradient(circle, rgba(199,244,61,0.1) 0%, transparent 70%)",
             pointerEvents: "none",
           }} />
 
-          <div style={{ position: "relative", maxWidth: 700, margin: "0 auto" }}>
+          <div style={{ position: "relative", maxWidth: 680, margin: "0 auto" }}>
+            {/* easy badge */}
             <div style={{
               display: "inline-flex", alignItems: "center", gap: 8,
-              background: "rgba(99,91,255,0.1)",
-              border: "1.5px solid rgba(99,91,255,0.2)",
-              borderRadius: 20, padding: "6px 14px",
-              fontSize: "0.82rem", fontWeight: 600, color: "var(--primary)",
-              marginBottom: 24,
+              background: "#C7F43D",
+              borderRadius: "999px",
+              padding: "5px 14px 5px 8px",
+              fontSize: "0.78rem",
+              fontWeight: 700,
+              color: "#161713",
+              marginBottom: 28,
             }}>
-              🎲 Free · No signup · 6+ tools
+              <span style={{
+                background: "#161713", color: "#C7F43D",
+                borderRadius: "999px", padding: "2px 8px", fontSize: "0.72rem",
+              }}>easy</span>
+              tools · Free · No signup
             </div>
 
             <h1 style={{
-              fontSize: "clamp(2.2rem, 5vw, 3.6rem)",
+              fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
               fontWeight: 800,
-              lineHeight: 1.15,
-              marginBottom: 20,
+              lineHeight: 1.12,
+              letterSpacing: "-0.03em",
+              marginBottom: 18,
               color: "var(--text)",
             }}>
-              Make every choice{" "}
-              <span className="gradient-text">more fun.</span>
+              Random anything,{" "}
+              <span style={{
+                background: "#C7F43D",
+                borderRadius: "8px",
+                padding: "0 8px",
+                color: "#161713",
+                display: "inline-block",
+              }}>
+                instantly.
+              </span>
             </h1>
 
             <p style={{
-              fontSize: "1.15rem",
+              fontSize: "1.1rem",
               color: "var(--text-muted)",
               lineHeight: 1.7,
               marginBottom: 36,
-              maxWidth: 520,
+              maxWidth: 500,
               margin: "0 auto 36px",
             }}>
-              Your favorite random generator tools in one place. Free, fast, and no account needed.
+              Your favourite random generator tools in one place. Free, fast, and no account needed.
             </p>
 
-            {/* Search bar */}
             <HeroSearch />
 
-            {/* Quick links */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center" }}>
-              <span style={{ fontSize: "0.85rem", color: "var(--text-muted)", alignSelf: "center" }}>Popular:</span>
-              {["Spin Wheel", "Name Picker", "Dice Roller"].map((t) => (
-                <span key={t} className="chip active" style={{ fontSize: "0.82rem" }}>{t}</span>
+            {/* Quick chips */}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center", marginTop: 16 }}>
+              <span style={{ fontSize: "0.82rem", color: "var(--text-muted)", alignSelf: "center" }}>Try:</span>
+              {["Spin Wheel", "Name Picker", "Coin Flip"].map((t) => (
+                <span key={t} className="chip active" style={{ fontSize: "0.8rem" }}>{t}</span>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Popular Tools Grid */}
-        <section id="tools" style={{ padding: "64px 24px", maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 32, flexWrap: "wrap", gap: 12 }}>
-            <div>
-              <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--text)" }}>
-                ✨ Popular Tools
-              </h2>
-              <p style={{ color: "var(--text-muted)", marginTop: 4, fontSize: "0.9rem" }}>
-                Start with these fan favorites
-              </p>
-            </div>
+        {/* Tools Grid */}
+        <section id="tools" style={{ padding: "0 24px 64px", maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 28 }}>
+            <h2 style={{ fontSize: "1.5rem", fontWeight: 800, color: "var(--text)", letterSpacing: "-0.02em" }}>
+              Popular Tools
+            </h2>
+            <span style={{
+              background: "#C7F43D", color: "#161713",
+              borderRadius: "999px", padding: "2px 10px",
+              fontSize: "0.72rem", fontWeight: 800,
+            }}>
+              {tools.length} free tools
+            </span>
           </div>
 
           <div style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-            gap: 20,
+            gap: 16,
           }}>
             {tools.map((tool, i) => (
               <Link
@@ -177,12 +187,12 @@ export default function Home() {
               >
                 <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
                   <div style={{
-                    width: 52, height: 52,
-                    borderRadius: 14,
-                    background: tool.bg,
+                    width: 48, height: 48,
+                    borderRadius: "var(--radius-sm)",
+                    background: tool.accentBg,
+                    border: "1.5px solid rgba(199,244,61,0.3)",
                     display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: 26,
-                    flexShrink: 0,
+                    fontSize: 24, flexShrink: 0,
                   }}>
                     {tool.emoji}
                   </div>
@@ -193,16 +203,18 @@ export default function Home() {
                   )}
                 </div>
                 <div>
-                  <h3 style={{ fontWeight: 700, fontSize: "1rem", color: "var(--text)", marginBottom: 4 }}>
+                  <h3 style={{ fontWeight: 700, fontSize: "0.97rem", color: "var(--text)", marginBottom: 4, letterSpacing: "-0.01em" }}>
                     {tool.name}
                   </h3>
-                  <p style={{ fontSize: "0.86rem", color: "var(--text-muted)", lineHeight: 1.5 }}>
+                  <p style={{ fontSize: "0.84rem", color: "var(--text-muted)", lineHeight: 1.5 }}>
                     {tool.desc}
                   </p>
                 </div>
                 <div style={{
                   display: "flex", alignItems: "center", gap: 4,
-                  color: tool.color, fontSize: "0.82rem", fontWeight: 600,
+                  fontSize: "0.8rem", fontWeight: 700,
+                  color: "var(--text-muted)",
+                  marginTop: 4,
                 }}>
                   Try now →
                 </div>
@@ -213,91 +225,92 @@ export default function Home() {
 
         {/* Categories */}
         <section id="categories" style={{
-          padding: "64px 24px",
-          background: "linear-gradient(180deg, transparent, rgba(99,91,255,0.03))",
+          padding: "40px 24px 64px",
+          background: "var(--bg-elevated)",
         }}>
           <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: 40 }}>
-              <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--text)", marginBottom: 8 }}>
+            <div style={{ marginBottom: 32 }}>
+              <h2 style={{ fontSize: "1.5rem", fontWeight: 800, color: "var(--text)", letterSpacing: "-0.02em", marginBottom: 6 }}>
                 Browse by Category
               </h2>
-              <p style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>
+              <p style={{ color: "var(--text-muted)", fontSize: "0.88rem" }}>
                 Find the perfect tool for every occasion
               </p>
             </div>
 
             <div style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
-              gap: 16,
+              gridTemplateColumns: "repeat(auto-fill, minmax(175px, 1fr))",
+              gap: 14,
             }}>
               {categories.map((cat) => (
-                <div key={cat.name} className="glass-card" style={{ padding: "20px 18px", cursor: "pointer" }}>
+                <div key={cat.name} className="easy-card" style={{ padding: "18px 16px", cursor: "pointer" }}>
                   <div style={{
-                    width: 44, height: 44,
-                    borderRadius: 12,
-                    background: `${cat.color}18`,
+                    width: 40, height: 40,
+                    borderRadius: "var(--radius-sm)",
+                    background: "rgba(199,244,61,0.12)",
+                    border: "1.5px solid rgba(199,244,61,0.25)",
                     display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: 22, marginBottom: 10,
+                    fontSize: 20, marginBottom: 10,
                   }}>
                     {cat.emoji}
                   </div>
-                  <h3 style={{ fontWeight: 700, fontSize: "0.9rem", color: "var(--text)", marginBottom: 4 }}>
+                  <h3 style={{ fontWeight: 700, fontSize: "0.88rem", color: "var(--text)", marginBottom: 3, letterSpacing: "-0.01em" }}>
                     {cat.name}
                   </h3>
-                  <p style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>{cat.desc}</p>
+                  <p style={{ fontSize: "0.76rem", color: "var(--text-muted)", lineHeight: 1.4 }}>{cat.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Banner */}
-        <section style={{ padding: "40px 24px", maxWidth: 1200, margin: "0 auto" }}>
+        {/* CTA Banner — Easy style */}
+        <section style={{ padding: "40px 24px 20px", maxWidth: 1200, margin: "0 auto" }}>
           <div style={{
-            background: "linear-gradient(135deg, var(--primary), #8B5CF6, #EC4899)",
-            borderRadius: 28,
+            background: "#C7F43D",
+            borderRadius: "var(--radius-lg)",
             padding: "48px 40px",
-            textAlign: "center",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: 24,
             position: "relative",
             overflow: "hidden",
           }}>
             <div style={{
-              position: "absolute", top: -30, right: -30, width: 200, height: 200,
+              position: "absolute", top: -30, right: 80, width: 180, height: 180,
               borderRadius: "50%",
-              background: "rgba(255,255,255,0.07)",
+              background: "rgba(22,23,19,0.06)",
             }} />
-            <div style={{
-              position: "absolute", bottom: -20, left: -20, width: 150, height: 150,
-              borderRadius: "50%",
-              background: "rgba(255,255,255,0.07)",
-            }} />
-            <h2 style={{
-              color: "white", fontSize: "1.8rem", fontWeight: 800, marginBottom: 12, position: "relative",
-            }}>
-              Ready to decide? 🎲
-            </h2>
-            <p style={{
-              color: "rgba(255,255,255,0.85)", fontSize: "1rem", marginBottom: 28, position: "relative",
-            }}>
-              Pick a tool and let randomness make your day more interesting.
-            </p>
+            <div>
+              <h2 style={{
+                color: "#161713", fontSize: "clamp(1.4rem, 3vw, 2rem)",
+                fontWeight: 800, marginBottom: 8, letterSpacing: "-0.03em",
+              }}>
+                Có cách dễ hơn mà. 🎲
+              </h2>
+              <p style={{ color: "rgba(22,23,19,0.65)", fontSize: "0.95rem" }}>
+                Pick a tool and let randomness make your decision.
+              </p>
+            </div>
             <Link href="/spin-the-wheel" style={{
               display: "inline-flex",
               alignItems: "center",
               gap: 8,
-              background: "white",
-              color: "var(--primary)",
-              padding: "14px 32px",
-              borderRadius: 14,
+              background: "#161713",
+              color: "#C7F43D",
+              padding: "14px 28px",
+              borderRadius: "var(--radius-md)",
               fontWeight: 700,
               textDecoration: "none",
-              fontSize: "1rem",
-              boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
-              transition: "transform 0.2s",
+              fontSize: "0.95rem",
+              flexShrink: 0,
+              transition: "transform 0.18s",
               position: "relative",
             }}>
-              🎡 Start with Spin the Wheel
+              🎡 Spin the Wheel
             </Link>
           </div>
         </section>

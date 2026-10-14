@@ -1,21 +1,41 @@
 "use client";
 import Link from "next/link";
 
-export default function Footer() {
-  const tools = [
-    { name: "Spin the Wheel", href: "/spin-the-wheel" },
-    { name: "Random Name Picker", href: "/random-name-picker" },
-    { name: "Number Generator", href: "/random-number-generator" },
-    { name: "Team Generator", href: "/random-team-generator" },
-    { name: "Yes or No", href: "/yes-or-no" },
-    { name: "Coin Flip", href: "/coin-flip" },
-  ];
+function EasySymbol() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 128 128" aria-hidden="true">
+      <rect width="128" height="128" rx="32" fill="#C7F43D" />
+      <path
+        fill="#161713"
+        fillRule="evenodd"
+        d="M91 33C81 19 57 21 43 32C27 44 24 65 34 79C44 94 68 96 86 82C95 75 84 61 77 67C65 77 54 76 49 69L88 54C99 50 98 41 91 33ZM46 53C47 42 60 34 70 39C74 41 75 44 70 46Z"
+      />
+      <path
+        d="M34 94Q64 122 96 91"
+        fill="none"
+        stroke="#161713"
+        strokeWidth="13"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
 
+const tools = [
+  { name: "Spin the Wheel",    href: "/spin-the-wheel" },
+  { name: "Random Name Picker",href: "/random-name-picker" },
+  { name: "Number Generator",  href: "/random-number-generator" },
+  { name: "Team Generator",    href: "/random-team-generator" },
+  { name: "Yes or No",         href: "/yes-or-no" },
+  { name: "Coin Flip",         href: "/coin-flip" },
+];
+
+export default function Footer() {
   return (
     <footer style={{
-      background: "var(--card-bg)",
+      background: "var(--bg-elevated)",
       borderTop: "1px solid var(--border)",
-      padding: "48px 24px 24px",
+      padding: "48px 24px 28px",
       marginTop: 80,
     }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -27,27 +47,51 @@ export default function Footer() {
         }}>
           {/* Brand */}
           <div>
-            <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
-              <span style={{ fontSize: 24 }}>🎲</span>
-              <span style={{ fontWeight: 800, fontSize: "1.1rem", color: "var(--text)" }}>
-                Random<span style={{ color: "var(--primary)" }}>Hub</span>
+            <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
+              <EasySymbol />
+              <span style={{ fontWeight: 800, fontSize: "0.95rem", color: "var(--text)", letterSpacing: "-0.02em" }}>
+                Pick <span style={{ color: "#C7F43D", WebkitTextStroke: "0.5px #161713" }}>easy</span>
               </span>
             </Link>
-            <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", lineHeight: 1.6, maxWidth: 240 }}>
-              Free random generator tools for everyone. No signup required.
+            <p style={{ color: "var(--text-muted)", fontSize: "0.84rem", lineHeight: 1.65, maxWidth: 220, marginBottom: 12 }}>
+              Free random generator tools. Part of the easy ecosystem.
             </p>
+            <a
+              href="https://easy.io.vn"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                background: "#C7F43D",
+                color: "#161713",
+                padding: "6px 12px",
+                borderRadius: "999px",
+                fontSize: "0.75rem",
+                fontWeight: 700,
+                textDecoration: "none",
+                transition: "opacity 0.18s",
+              }}
+            >
+              <EasySymbol />
+              easy.io.vn ↗
+            </a>
           </div>
 
           {/* Tools */}
           <div>
-            <h3 style={{ fontWeight: 700, fontSize: "0.9rem", marginBottom: 14, color: "var(--text)" }}>Popular Tools</h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            <h3 style={{ fontWeight: 700, fontSize: "0.82rem", marginBottom: 14, color: "var(--text)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              Tools
+            </h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
               {tools.map((t) => (
                 <Link key={t.href} href={t.href} style={{
                   color: "var(--text-muted)",
                   textDecoration: "none",
                   fontSize: "0.88rem",
-                  transition: "color 0.2s",
+                  fontWeight: 500,
+                  transition: "color 0.18s",
                 }}>
                   {t.name}
                 </Link>
@@ -55,10 +99,46 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* easy ecosystem */}
+          <div>
+            <h3 style={{ fontWeight: 700, fontSize: "0.82rem", marginBottom: 14, color: "var(--text)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              easy ecosystem
+            </h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
+              {[
+                { name: "easy.io.vn", href: "https://easy.io.vn", tag: "Hub" },
+                { name: "game.easy", href: "https://game.easy.io.vn", tag: "Games" },
+                { name: "tools.easy", href: "https://tools.easy.io.vn", tag: "Tools" },
+              ].map((l) => (
+                <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" style={{
+                  color: "var(--text-muted)",
+                  textDecoration: "none",
+                  fontSize: "0.88rem",
+                  fontWeight: 500,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 6,
+                }}>
+                  {l.name}
+                  <span style={{
+                    fontSize: "0.65rem",
+                    background: "var(--bg)",
+                    border: "1px solid var(--border)",
+                    borderRadius: "4px",
+                    padding: "1px 5px",
+                    color: "var(--text-muted)",
+                  }}>{l.tag}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
           {/* Legal */}
           <div>
-            <h3 style={{ fontWeight: 700, fontSize: "0.9rem", marginBottom: 14, color: "var(--text)" }}>Company</h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            <h3 style={{ fontWeight: 700, fontSize: "0.82rem", marginBottom: 14, color: "var(--text)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              Info
+            </h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
               {[
                 { name: "About", href: "/about" },
                 { name: "Privacy Policy", href: "/privacy" },
@@ -68,6 +148,7 @@ export default function Footer() {
                   color: "var(--text-muted)",
                   textDecoration: "none",
                   fontSize: "0.88rem",
+                  fontWeight: 500,
                 }}>
                   {l.name}
                 </Link>
@@ -85,11 +166,16 @@ export default function Footer() {
           flexWrap: "wrap",
           gap: 12,
         }}>
-          <p style={{ color: "var(--text-muted)", fontSize: "0.82rem" }}>
-            © {new Date().getFullYear()} Random Generator Hub. All rights reserved.
+          <p style={{ color: "var(--text-muted)", fontSize: "0.78rem" }}>
+            © {new Date().getFullYear()} easy.io.vn — Dễ hơn mỗi ngày.
           </p>
-          <p style={{ color: "var(--text-muted)", fontSize: "0.82rem" }}>
-            Made with ❤️ for everyone who needs a little randomness
+          <p style={{ color: "var(--text-muted)", fontSize: "0.78rem" }}>
+            Pick easy is part of the{" "}
+            <a href="https://easy.io.vn" target="_blank" rel="noopener noreferrer"
+              style={{ color: "#C7F43D", fontWeight: 700, textDecoration: "none" }}>
+              easy
+            </a>
+            {" "}ecosystem
           </p>
         </div>
       </div>

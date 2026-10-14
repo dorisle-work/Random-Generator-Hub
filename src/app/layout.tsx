@@ -3,21 +3,28 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Random Generator Hub — Random anything, instantly.",
-    template: "%s | Random Generator Hub",
+    default: "Pick easy — Random anything, instantly. by easy",
+    template: "%s | Pick easy",
   },
   description:
-    "Free online random generator tools: Spin the Wheel, Random Name Picker, Number Generator, Team Generator, Coin Flip & more. No signup required.",
+    "Free random generator tools by easy. Spin the Wheel, Random Name Picker, Number Generator, Team Generator, Coin Flip & more. No signup required.",
   keywords: [
     "random generator", "spin the wheel", "random name picker",
-    "random number generator", "coin flip", "dice roller",
-    "team generator", "yes or no generator",
+    "random number generator", "coin flip", "team generator",
+    "yes or no generator", "easy tools",
   ],
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", sizes: "32x32" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     type: "website",
-    title: "Random Generator Hub",
-    description: "Random anything, instantly. Free random generator tools.",
-    siteName: "Random Generator Hub",
+    title: "Pick easy — Random anything, instantly.",
+    description: "Free random generator tools by easy. No signup required.",
+    siteName: "Pick easy by easy.io.vn",
   },
   twitter: { card: "summary_large_image" },
 };
