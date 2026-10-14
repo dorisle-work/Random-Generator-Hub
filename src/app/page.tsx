@@ -8,7 +8,7 @@ import {
 } from "@/components/Icons";
 
 export const metadata: Metadata = {
-  title: "Pick easy — Random anything, instantly.",
+  title: "random.easy — Random anything, instantly.",
   description:
     "Free random generator tools by easy. Spin the Wheel, Random Name Picker, Number Generator, Team Generator, Coin Flip & more. No signup required.",
 };

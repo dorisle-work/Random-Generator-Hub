@@ -3,15 +3,15 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Pick easy — Random anything, instantly. by easy",
-    template: "%s | Pick easy",
+    default: "random.easy — Random anything, instantly. by easy",
+    template: "%s | random.easy",
   },
   description:
     "Free random generator tools by easy. Spin the Wheel, Random Name Picker, Number Generator, Team Generator, Coin Flip & more. No signup required.",
   keywords: [
     "random generator", "spin the wheel", "random name picker",
     "random number generator", "coin flip", "team generator",
-    "yes or no generator", "easy tools",
+    "yes or no generator", "random easy", "easy tools",
   ],
   icons: {
     icon: [
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "Pick easy — Random anything, instantly.",
+    title: "random.easy — Random anything, instantly.",
     description: "Free random generator tools by easy. No signup required.",
-    siteName: "Pick easy by easy.io.vn",
+    siteName: "random.easy by easy.io.vn",
   },
   twitter: { card: "summary_large_image" },
 };

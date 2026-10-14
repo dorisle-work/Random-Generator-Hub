@@ -49,8 +49,8 @@ export default function Footer() {
           <div>
             <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
               <EasySymbol />
-              <span style={{ fontWeight: 800, fontSize: "1.2rem", color: "var(--text)", letterSpacing: "-0.02em" }}>
-                Pick <span style={{ color: "#8ab800", WebkitTextStroke: "0.5px currentColor" }}>easy</span>
+              <span style={{ fontWeight: 800, fontSize: "1.25rem", color: "var(--text)", letterSpacing: "-0.02em" }}>
+                random<span style={{ color: "#8ab800", WebkitTextStroke: "0.5px currentColor" }}>.easy</span>
               </span>
             </Link>
             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6, maxWidth: 260, marginBottom: 16 }}>
@@ -171,7 +171,7 @@ export default function Footer() {
             © {new Date().getFullYear()} easy.io.vn — Dễ hơn mỗi ngày.
           </p>
           <p style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>
-            Pick easy is part of the{" "}
+            random.easy is part of the{" "}
             <a href="https://easy.io.vn" target="_blank" rel="noopener noreferrer"
               style={{ color: "#8ab800", fontWeight: 700, textDecoration: "none" }}>
               easy

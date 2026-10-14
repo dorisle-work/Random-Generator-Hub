@@ -112,11 +112,11 @@ export default function Header() {
           <div style={{ display: "flex", flexDirection: "column", lineHeight: 1.1 }}>
             <span style={{
               fontWeight: 800,
-              fontSize: "1.2rem",
+              fontSize: "1.25rem",
               color: "var(--text)",
               letterSpacing: "-0.03em",
             }}>
-              Pick <span style={{ color: "#8ab800", WebkitTextStroke: "0.5px currentColor" }}>easy</span>
+              random<span style={{ color: "#8ab800", WebkitTextStroke: "0.5px currentColor" }}>.easy</span>
             </span>
             <span style={{ fontSize: "0.78rem", color: "var(--text-muted)", fontWeight: 500, letterSpacing: "-0.01em" }}>
               by easy.io.vn
