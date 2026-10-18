@@ -1,0 +1,97 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "easy logo random.easy by easy.io.vn" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "easy logo" [ref=e5]
+        - generic [ref=e9]:
+          - generic [ref=e10]: random.easy
+          - generic [ref=e11]: by easy.io.vn
+      - navigation [ref=e12]:
+        - link "Home" [ref=e13] [cursor=pointer]:
+          - /url: /
+        - link "Tools" [ref=e14] [cursor=pointer]:
+          - /url: /#tools
+        - link "Categories" [ref=e15] [cursor=pointer]:
+          - /url: /#categories
+        - link "easy ecosystem ↗" [ref=e16] [cursor=pointer]:
+          - /url: https://easy.io.vn
+          - generic [ref=e17]: easy
+          - text: ecosystem ↗
+      - generic [ref=e18]:
+        - button "Continue with Google" [ref=e21] [cursor=pointer]
+        - button "Toggle theme" [ref=e22] [cursor=pointer]
+  - main [ref=e25]:
+    - generic [ref=e26]:
+      - navigation [ref=e27]:
+        - link "Home" [ref=e28] [cursor=pointer]:
+          - /url: /
+        - generic [aria-hidden] [ref=e29]: ›
+        - link "Random Picker" [ref=e30] [cursor=pointer]:
+          - /url: /#categories
+        - generic [aria-hidden] [ref=e31]: ›
+        - generic [ref=e32]: Yes or No
+      - generic [ref=e33]:
+        - heading "Yes or No Generator" [level=1] [ref=e34]
+        - paragraph [ref=e38]: Ask your question and get an instant random yes or no answer
+      - generic [ref=e40]:
+        - generic [ref=e41]: What's your question?
+        - textbox "Should I go to the gym today?" [ref=e46]
+        - button "Get answer" [ref=e47] [cursor=pointer]
+  - contentinfo [ref=e51]:
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - link "random.easy" [ref=e55] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=e61]: Free random decision and generation tools. Part of the easy ecosystem.
+          - link "easy.io.vn ↗" [ref=e62] [cursor=pointer]:
+            - /url: https://easy.io.vn
+        - generic [ref=e67]:
+          - heading "Tools" [level=3] [ref=e68]
+          - generic [ref=e69]:
+            - link "Spin the Wheel" [ref=e70] [cursor=pointer]:
+              - /url: /spin-the-wheel
+            - link "Random Name Picker" [ref=e71] [cursor=pointer]:
+              - /url: /random-name-picker
+            - link "Number Generator" [ref=e72] [cursor=pointer]:
+              - /url: /random-number-generator
+            - link "Team Generator" [ref=e73] [cursor=pointer]:
+              - /url: /random-team-generator
+            - link "Yes or No" [ref=e74] [cursor=pointer]:
+              - /url: /yes-or-no
+            - link "Coin Flip" [ref=e75] [cursor=pointer]:
+              - /url: /coin-flip
+        - generic [ref=e76]:
+          - heading "easy ecosystem" [level=3] [ref=e77]
+          - generic [ref=e78]:
+            - link "easy.io.vn Hub" [ref=e79] [cursor=pointer]:
+              - /url: https://easy.io.vn
+              - text: easy.io.vn
+              - generic [ref=e80]: Hub
+            - link "game.easy Games" [ref=e81] [cursor=pointer]:
+              - /url: https://game.easy.io.vn
+              - text: game.easy
+              - generic [ref=e82]: Games
+            - link "tools.easy Tools" [ref=e83] [cursor=pointer]:
+              - /url: https://tools.easy.io.vn
+              - text: tools.easy
+              - generic [ref=e84]: Tools
+        - generic [ref=e85]:
+          - heading "Info" [level=3] [ref=e86]
+          - generic [ref=e87]:
+            - link "About" [ref=e88] [cursor=pointer]:
+              - /url: /about
+            - link "Privacy Policy" [ref=e89] [cursor=pointer]:
+              - /url: /privacy
+            - link "Terms of Use" [ref=e90] [cursor=pointer]:
+              - /url: /terms
+      - generic [ref=e91]:
+        - paragraph [ref=e92]: © 2026 easy.io.vn — Dễ hơn mỗi ngày.
+        - paragraph [ref=e93]:
+          - text: random.easy is part of the
+          - link "easy" [ref=e94] [cursor=pointer]:
+            - /url: https://easy.io.vn
+          - text: ecosystem
+  - button "Open Next.js Dev Tools" [ref=e100] [cursor=pointer]
+  - alert [ref=e104]

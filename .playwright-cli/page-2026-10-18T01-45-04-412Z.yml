@@ -1,0 +1,132 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "easy logo random.easy by easy.io.vn" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "easy logo" [ref=e5]
+        - generic [ref=e9]:
+          - generic [ref=e10]: random.easy
+          - generic [ref=e11]: by easy.io.vn
+      - navigation [ref=e12]:
+        - link "Home" [ref=e13] [cursor=pointer]:
+          - /url: /
+        - link "Tools" [ref=e14] [cursor=pointer]:
+          - /url: /tools
+        - link "Categories" [ref=e15] [cursor=pointer]:
+          - /url: /categories/random-picker
+        - link "easy ecosystem ↗" [ref=e16] [cursor=pointer]:
+          - /url: https://easy.io.vn
+          - generic [ref=e17]: easy
+          - text: ecosystem ↗
+      - generic [ref=e18]:
+        - button "Continue with Google" [ref=e21] [cursor=pointer]
+        - button "Toggle theme" [ref=e22] [cursor=pointer]
+  - main [ref=e25]:
+    - navigation [ref=e26]:
+      - link "Home" [ref=e27] [cursor=pointer]:
+        - /url: /
+      - generic [aria-hidden] [ref=e28]: ›
+      - link "Tools" [ref=e29] [cursor=pointer]:
+        - /url: /tools
+      - generic [aria-hidden] [ref=e30]: ›
+      - generic [ref=e31]: Random Pickers
+    - generic [ref=e32]:
+      - heading "Random Pickers" [level=1] [ref=e33]
+      - paragraph [ref=e34]: Use a random picker when the choice matters more than the process. Each tool gives a clear result immediately and keeps the controls close to the task.
+    - region "Random Pickers tools" [ref=e35]:
+      - link [ref=e36] [cursor=pointer]:
+        - /url: /spin-the-wheel
+        - heading "Spin the Wheel" [level=2] [ref=e37]
+        - paragraph [ref=e38]: Build a custom wheel for a fair, visible random pick.
+        - generic [ref=e39]:
+          - text: Try Spin the Wheel
+          - generic [aria-hidden] [ref=e40]: →
+      - link [ref=e41] [cursor=pointer]:
+        - /url: /random-name-picker
+        - heading "Random Name Picker" [level=2] [ref=e42]
+        - paragraph [ref=e43]: Draw a name or winner from a list without duplicate results.
+        - generic [ref=e44]:
+          - text: Try Random Name Picker
+          - generic [aria-hidden] [ref=e45]: →
+      - link [ref=e46] [cursor=pointer]:
+        - /url: /random-number-generator
+        - heading "Random Number Generator" [level=2] [ref=e47]
+        - paragraph [ref=e48]: Generate one or many numbers inside a range, with optional uniqueness.
+        - generic [ref=e49]:
+          - text: Try Random Number Generator
+          - generic [aria-hidden] [ref=e50]: →
+      - link [ref=e51] [cursor=pointer]:
+        - /url: /random-team-generator
+        - heading "Random Team Generator" [level=2] [ref=e52]
+        - paragraph [ref=e53]: Split participants into balanced random groups in seconds.
+        - generic [ref=e54]:
+          - text: Try Random Team Generator
+          - generic [aria-hidden] [ref=e55]: →
+      - link [ref=e56] [cursor=pointer]:
+        - /url: /coin-flip
+        - heading "Coin Flip" [level=2] [ref=e57]
+        - paragraph [ref=e58]: Make a quick, impartial heads-or-tails decision.
+        - generic [ref=e59]:
+          - text: Try Coin Flip
+          - generic [aria-hidden] [ref=e60]: →
+    - generic [ref=e61]:
+      - heading "Choose the right randomizer" [level=2] [ref=e62]
+      - paragraph [ref=e63]: Start with the tool that matches your decision. Use a wheel when you want a shared visual moment, a picker for a list, a team generator for groups, or a number tool when the range matters.
+  - contentinfo [ref=e64]:
+    - generic [ref=e65]:
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - link "random.easy" [ref=e68] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=e74]: Free random decision and generation tools. Part of the easy ecosystem.
+          - link "easy.io.vn ↗" [ref=e75] [cursor=pointer]:
+            - /url: https://easy.io.vn
+        - generic [ref=e80]:
+          - heading "Tools" [level=3] [ref=e81]
+          - generic [ref=e82]:
+            - link "Spin the Wheel" [ref=e83] [cursor=pointer]:
+              - /url: /spin-the-wheel
+            - link "Random Name Picker" [ref=e84] [cursor=pointer]:
+              - /url: /random-name-picker
+            - link "Number Generator" [ref=e85] [cursor=pointer]:
+              - /url: /random-number-generator
+            - link "Team Generator" [ref=e86] [cursor=pointer]:
+              - /url: /random-team-generator
+            - link "Yes or No" [ref=e87] [cursor=pointer]:
+              - /url: /yes-or-no
+            - link "Coin Flip" [ref=e88] [cursor=pointer]:
+              - /url: /coin-flip
+        - generic [ref=e89]:
+          - heading "easy ecosystem" [level=3] [ref=e90]
+          - generic [ref=e91]:
+            - link "easy.io.vn Hub" [ref=e92] [cursor=pointer]:
+              - /url: https://easy.io.vn
+              - text: easy.io.vn
+              - generic [ref=e93]: Hub
+            - link "game.easy Games" [ref=e94] [cursor=pointer]:
+              - /url: https://game.easy.io.vn
+              - text: game.easy
+              - generic [ref=e95]: Games
+            - link "tools.easy Tools" [ref=e96] [cursor=pointer]:
+              - /url: https://tools.easy.io.vn
+              - text: tools.easy
+              - generic [ref=e97]: Tools
+        - generic [ref=e98]:
+          - heading "Info" [level=3] [ref=e99]
+          - generic [ref=e100]:
+            - link "About" [ref=e101] [cursor=pointer]:
+              - /url: /about
+            - link "Privacy Policy" [ref=e102] [cursor=pointer]:
+              - /url: /privacy
+            - link "Terms of Use" [ref=e103] [cursor=pointer]:
+              - /url: /terms
+            - button "Privacy choices" [ref=e104] [cursor=pointer]
+      - generic [ref=e105]:
+        - paragraph [ref=e106]: © 2026 easy.io.vn — Dễ hơn mỗi ngày.
+        - paragraph [ref=e107]:
+          - text: random.easy is part of the
+          - link "easy" [ref=e108] [cursor=pointer]:
+            - /url: https://easy.io.vn
+          - text: ecosystem
+  - button "Open Next.js Dev Tools" [ref=e114] [cursor=pointer]
+  - alert [ref=e118]

@@ -1,5 +1,8 @@
 "use client";
 import { useState } from "react";
+import { pickRandom } from "@/lib/random";
+import CopyResultButton from "@/components/CopyResultButton";
+import { IconHistory, IconTarget, IconUser, IconX } from "@/components/Icons";
 
 export default function NamePickerClient() {
   const [input, setInput] = useState("");
@@ -22,12 +25,13 @@ export default function NamePickerClient() {
     let ticks = 0;
     const maxTicks = 18;
     const interval = setInterval(() => {
-      const randomName = available[Math.floor(Math.random() * available.length)];
-      setResult(randomName);
+      const randomName = pickRandom(available);
+      if (randomName) setResult(randomName);
       ticks++;
       if (ticks >= maxTicks) {
         clearInterval(interval);
-        const winner = available[Math.floor(Math.random() * available.length)];
+        const winner = pickRandom(available);
+        if (!winner) return;
         setResult(winner);
         setHistory((h) => [winner, ...h].slice(0, 10));
         if (removeAfterPick) {
@@ -75,7 +79,7 @@ export default function NamePickerClient() {
         {/* Add names */}
         <div className="glass-card" style={{ padding: 24 }}>
           <h3 style={{ fontWeight: 700, fontSize: "0.95rem", marginBottom: 12, color: "var(--text)" }}>
-            📝 Your Names
+            <span className="button-content"><IconUser size={18} /> Your names</span>
           </h3>
           <textarea
             id="name-input"
@@ -87,7 +91,7 @@ export default function NamePickerClient() {
             style={{ resize: "vertical", marginBottom: 10 }}
           />
           <button onClick={addNames} className="btn-primary" style={{ width: "100%", justifyContent: "center" }}>
-            + Add Names
+            Add names
           </button>
         </div>
 
@@ -101,14 +105,15 @@ export default function NamePickerClient() {
               {result || "..."}
             </div>
           ) : result ? (
-            <div className="animate-bounce-in" style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: 8 }}>🎉 Selected!</div>
+            <div className="animate-result" style={{ textAlign: "center" }}>
+              <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: 8 }}>Selected</div>
               <div style={{ fontSize: "2.4rem", fontWeight: 900, color: "var(--primary)", marginBottom: 16 }}>
                 {result}
               </div>
               <button onClick={pick} disabled={available.length === 0} className="btn-primary" style={{ padding: "10px 24px" }}>
                 Pick Again
               </button>
+              <CopyResultButton text={result} label="Copy name" style={{ marginTop: 10, padding: "8px 16px", fontSize: "0.82rem" }} />
             </div>
           ) : (
             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
@@ -124,12 +129,12 @@ export default function NamePickerClient() {
           className="btn-primary"
           style={{ justifyContent: "center", fontSize: "1.1rem", padding: "16px" }}
         >
-          {picking ? "🎲 Picking..." : available.length === 0 ? "No more names!" : "🎯 Pick Random Name"}
+          <span className="button-content"><IconTarget size={19} /> {picking ? "Picking…" : available.length === 0 ? "No more names" : "Pick random name"}</span>
         </button>
 
         {/* Settings */}
         <div className="glass-card" style={{ padding: 20 }}>
-          <h3 style={{ fontWeight: 700, fontSize: "0.88rem", marginBottom: 12, color: "var(--text)" }}>⚙️ Settings</h3>
+          <h3 style={{ fontWeight: 700, fontSize: "0.88rem", marginBottom: 12, color: "var(--text)" }}>Settings</h3>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {[
               { label: "Remove name after picking", value: removeAfterPick, set: setRemoveAfterPick },
@@ -149,6 +154,11 @@ export default function NamePickerClient() {
           {!allowDupes && picked.size > 0 && (
             <button onClick={reset} className="btn-secondary" style={{ marginTop: 12, padding: "8px 16px", fontSize: "0.82rem" }}>
               Reset (picked {picked.size}/{names.length})
+            </button>
+          )}
+          {history.length > 0 && (
+            <button type="button" className="text-button" onClick={() => { setHistory([]); setResult(null); }} style={{ marginTop: 12 }}>
+              Clear result history
             </button>
           )}
         </div>
@@ -186,7 +196,8 @@ export default function NamePickerClient() {
                 <button
                   onClick={() => removeName(i)}
                   style={{ background: "none", border: "none", cursor: "pointer", color: "var(--text-muted)", fontSize: 12, flexShrink: 0, padding: "2px 4px" }}
-                >✕</button>
+                  aria-label={`Remove ${name}`}
+                ><IconX size={15} /></button>
               </div>
             ))}
             {names.length === 0 && (
@@ -200,7 +211,7 @@ export default function NamePickerClient() {
         {/* History */}
         {history.length > 0 && (
           <div className="glass-card" style={{ padding: 20 }}>
-            <h3 style={{ fontWeight: 700, fontSize: "0.88rem", marginBottom: 10, color: "var(--text)" }}>📋 History</h3>
+            <h3 style={{ fontWeight: 700, fontSize: "0.88rem", marginBottom: 10, color: "var(--text)" }}><span className="button-content"><IconHistory size={17} /> History</span></h3>
             {history.map((h, i) => (
               <div key={i} className="history-item">
                 <span style={{ color: "var(--primary)", fontWeight: 600, fontSize: "0.8rem" }}>#{i + 1}</span>

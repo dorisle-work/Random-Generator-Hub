@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import CoinFlipClient from "./CoinFlipClient";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ToolGuide from "@/components/ToolGuide";
+import { AdSlot } from "@/components/ConsentAndMonetization";
 
 export const metadata: Metadata = {
   title: "Coin Flip — Free Online Heads or Tails",
   description:
     "Flip a coin online for free. Get instant heads or tails result with a beautiful 3D coin flip animation. No real coin needed!",
+  alternates: { canonical: "/coin-flip" },
 };
 
 export default function CoinFlipPage() {
@@ -14,23 +18,23 @@ export default function CoinFlipPage() {
     <>
       <Header />
       <main style={{ minHeight: "100vh" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto", padding: "40px 24px" }}>
+        <div className="site-container tool-page-shell">
           <nav className="breadcrumb">
-            <a href="/">Home</a> <span>›</span>
-            <a href="/#categories">Random Picker</a> <span>›</span>
+            <Link href="/">Home</Link> <span aria-hidden="true">›</span>
+            <Link href="/categories/random-picker">Random Picker</Link> <span aria-hidden="true">›</span>
             <span style={{ color: "var(--text)" }}>Coin Flip</span>
           </nav>
 
-          <div style={{ textAlign: "center", marginBottom: 40 }}>
-            <h1 style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)", fontWeight: 800, color: "var(--text)", marginBottom: 10 }}>
-              🪙 Coin Flip
-            </h1>
-            <p style={{ color: "var(--text-muted)", fontSize: "1rem" }}>
+          <div className="page-intro">
+            <h1>Coin Flip</h1>
+            <p>
               Heads or tails? Flip a virtual coin and get an instant result
             </p>
           </div>
 
           <CoinFlipClient />
+          <AdSlot slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_TOOL_INLINE} className="tool-ad-slot" />
+          <ToolGuide tool="coin-flip" />
         </div>
       </main>
       <Footer />

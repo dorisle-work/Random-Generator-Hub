@@ -1,13 +1,16 @@
 "use client";
 import { useState } from "react";
+import { shuffle } from "@/lib/random";
+import CopyResultButton from "@/components/CopyResultButton";
+import { IconPlay, IconTeam } from "@/components/Icons";
 
 const TEAM_COLORS = [
-  { bg: "rgba(99,91,255,0.1)", border: "#635BFF", text: "#635BFF", emoji: "🔵" },
-  { bg: "rgba(236,72,153,0.1)", border: "#EC4899", text: "#EC4899", emoji: "🔴" },
-  { bg: "rgba(16,185,129,0.1)", border: "#10B981", text: "#10B981", emoji: "🟢" },
-  { bg: "rgba(245,158,11,0.1)", border: "#F59E0B", text: "#F59E0B", emoji: "🟡" },
-  { bg: "rgba(139,92,246,0.1)", border: "#8B5CF6", text: "#8B5CF6", emoji: "🟣" },
-  { bg: "rgba(239,68,68,0.1)", border: "#EF4444", text: "#EF4444", emoji: "🟠" },
+  { bg: "#F0EDFF", border: "#A89CF4", text: "#6657C7" },
+  { bg: "#FFF0F4", border: "#F49AB2", text: "#BE5575" },
+  { bg: "#EAF9F1", border: "#84D9B1", text: "#328764" },
+  { bg: "#FFF8DE", border: "#F3CD68", text: "#9A720D" },
+  { bg: "#EAF7FF", border: "#81C9EF", text: "#28799F" },
+  { bg: "#FFF0E7", border: "#F2AB79", text: "#AE6334" },
 ];
 
 interface Team {
@@ -32,11 +35,7 @@ export default function TeamGeneratorClient() {
 
     setTimeout(() => {
       // Fisher-Yates shuffle
-      const shuffled = [...names];
-      for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-      }
+      const shuffled = shuffle(names);
 
       const actualTeams = Math.min(numTeams, names.length);
       const result: Team[] = Array.from({ length: actualTeams }, (_, i) => ({
@@ -54,15 +53,9 @@ export default function TeamGeneratorClient() {
     }, 600);
   };
 
-  const copyTeams = () => {
-    const text = teams
-      .map((t) => `${t.name}: ${t.members.join(", ")}`)
-      .join("\n");
-    navigator.clipboard.writeText(text);
-  };
-
   const names = input.split(/[\n,]+/).map((s) => s.trim()).filter(Boolean);
   const memberPerTeam = names.length > 0 ? Math.ceil(names.length / numTeams) : 0;
+  const teamExport = teams.map((team) => `${team.name}: ${team.members.join(", ")}`).join("\n");
 
   return (
     <div>
@@ -71,7 +64,7 @@ export default function TeamGeneratorClient() {
         {/* Left: Input */}
         <div className="glass-card" style={{ padding: 24 }}>
           <h3 style={{ fontWeight: 700, fontSize: "0.95rem", marginBottom: 12, color: "var(--text)" }}>
-            👤 Participants ({names.length})
+            <span className="button-content"><IconTeam size={18} /> Participants ({names.length})</span>
           </h3>
           <textarea
             id="team-names-input"
@@ -88,7 +81,7 @@ export default function TeamGeneratorClient() {
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <div className="glass-card" style={{ padding: 24 }}>
             <h3 style={{ fontWeight: 700, fontSize: "0.95rem", marginBottom: 16, color: "var(--text)" }}>
-              ⚙️ Settings
+              Settings
             </h3>
 
             <label style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-muted)", display: "block", marginBottom: 8 }}>
@@ -135,7 +128,7 @@ export default function TeamGeneratorClient() {
               className="btn-primary"
               style={{ width: "100%", justifyContent: "center", padding: "14px" }}
             >
-              {generating ? "🎲 Shuffling..." : "👥 Generate Teams"}
+              <span className="button-content"><IconPlay size={18} /> {generating ? "Shuffling…" : "Generate teams"}</span>
             </button>
 
             {names.length < 2 && (
@@ -152,15 +145,13 @@ export default function TeamGeneratorClient() {
         <div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
             <h3 style={{ fontWeight: 700, fontSize: "1.1rem", color: "var(--text)" }}>
-              🎉 Teams
+              <span className="button-content"><IconTeam size={19} /> Teams</span>
             </h3>
             {teams.length > 0 && (
               <div style={{ display: "flex", gap: 10 }}>
-                <button onClick={copyTeams} className="btn-secondary" style={{ padding: "8px 16px", fontSize: "0.82rem" }}>
-                  📋 Copy
-                </button>
+                <CopyResultButton text={teamExport} label="Copy teams" style={{ padding: "8px 16px", fontSize: "0.82rem" }} />
                 <button onClick={generate} className="btn-primary" style={{ padding: "8px 16px", fontSize: "0.82rem" }}>
-                  🔀 Reshuffle
+                  Reshuffle
                 </button>
               </div>
             )}
@@ -168,7 +159,7 @@ export default function TeamGeneratorClient() {
 
           {generating ? (
             <div style={{ textAlign: "center", padding: 40, color: "var(--text-muted)" }}>
-              <div style={{ fontSize: "3rem", marginBottom: 12 }} className="animate-float">🎲</div>
+              <div style={{ color: "#8675E8", marginBottom: 12 }} className="animate-float"><IconTeam size={48} /></div>
               <p>Shuffling participants...</p>
             </div>
           ) : (
@@ -193,7 +184,7 @@ export default function TeamGeneratorClient() {
                     display: "flex", alignItems: "center", gap: 8,
                     marginBottom: 14,
                   }}>
-                    <span style={{ fontSize: 22 }}>{team.color.emoji}</span>
+                    <span style={{ width: 12, height: 12, borderRadius: "50%", background: team.color.border, flexShrink: 0 }} />
                     <h4 style={{ fontWeight: 800, color: team.color.text, fontSize: "1rem" }}>
                       {team.name}
                     </h4>

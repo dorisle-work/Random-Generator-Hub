@@ -83,3 +83,31 @@ export function IconSearch({ size = 20, strokeWidth = 1.8, color = "currentColor
   </>);
 }
 
+export function IconPlus({ size = 20, strokeWidth = 1.8, color = "currentColor" }: IconProps) {
+  return base(size, color, strokeWidth, <><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></>);
+}
+
+export function IconX({ size = 20, strokeWidth = 1.8, color = "currentColor" }: IconProps) {
+  return base(size, color, strokeWidth, <><line x1="6" y1="6" x2="18" y2="18" /><line x1="18" y1="6" x2="6" y2="18" /></>);
+}
+
+export function IconTarget({ size = 20, strokeWidth = 1.8, color = "currentColor" }: IconProps) {
+  return base(size, color, strokeWidth, <><circle cx="12" cy="12" r="8.5" /><circle cx="12" cy="12" r="3" /><path d="M16.5 7.5 21 3" /><path d="m17 3 4 0 0 4" /></>);
+}
+
+export function IconVolume({ size = 20, strokeWidth = 1.8, color = "currentColor" }: IconProps) {
+  return base(size, color, strokeWidth, <><path d="M4 10v4h4l5 4V6l-5 4H4Z" /><path d="M16 9.5a4 4 0 0 1 0 5" /><path d="M18.5 7a7.5 7.5 0 0 1 0 10" /></>);
+}
+
+export function IconCloud({ size = 20, strokeWidth = 1.8, color = "currentColor" }: IconProps) {
+  return base(size, color, strokeWidth, <><path d="M7 18h10a4 4 0 0 0 .4-8A5.5 5.5 0 0 0 7 8.2 4.8 4.8 0 0 0 7 18Z" /><path d="M12 10v6" /><path d="m9.8 13 2.2-2.2 2.2 2.2" /></>);
+}
+
+export function IconHistory({ size = 20, strokeWidth = 1.8, color = "currentColor" }: IconProps) {
+  return base(size, color, strokeWidth, <><path d="M3.5 12a8.5 8.5 0 1 0 2.1-5.6" /><path d="M3.5 4.5v4.7h4.7" /><path d="M12 7.5V12l3 1.8" /></>);
+}
+
+export function IconPlay({ size = 20, strokeWidth = 1.8, color = "currentColor" }: IconProps) {
+  return base(size, color, strokeWidth, <path d="m9 7 7 5-7 5V7Z" />);
+}
+

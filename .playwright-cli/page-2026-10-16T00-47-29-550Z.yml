@@ -1,0 +1,140 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "easy logo random.easy by easy.io.vn" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "easy logo" [ref=e5]
+        - generic [ref=e9]:
+          - generic [ref=e10]: random.easy
+          - generic [ref=e11]: by easy.io.vn
+      - navigation [ref=e12]:
+        - link "Home" [ref=e13] [cursor=pointer]:
+          - /url: /
+        - link "Tools" [ref=e14] [cursor=pointer]:
+          - /url: /#tools
+        - link "Categories" [ref=e15] [cursor=pointer]:
+          - /url: /#categories
+        - link "easy ecosystem ↗" [ref=e16] [cursor=pointer]:
+          - /url: https://easy.io.vn
+          - generic [ref=e17]: easy
+          - text: ecosystem ↗
+      - generic [ref=e18]:
+        - button "Continue with Google" [ref=e21] [cursor=pointer]
+        - button "Toggle theme" [ref=e22] [cursor=pointer]
+  - main [ref=e25]:
+    - generic [ref=e26]:
+      - navigation [ref=e27]:
+        - link "Home" [ref=e28] [cursor=pointer]:
+          - /url: /
+        - generic [aria-hidden] [ref=e29]: ›
+        - link "Random Picker" [ref=e30] [cursor=pointer]:
+          - /url: /#categories
+        - generic [aria-hidden] [ref=e31]: ›
+        - generic [ref=e32]: Name Picker
+      - generic [ref=e33]:
+        - heading "Random Name Picker" [level=1] [ref=e34]
+        - paragraph [ref=e35]: Add names to the list and pick one at random
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e38]:
+            - heading "Your names" [level=3] [ref=e39]
+            - textbox "Add names (one per line or comma-separated) Alice Bob Charlie" [ref=e44]:
+              - /placeholder: "Add names (one per line or comma-separated)\nAlice\nBob\nCharlie"
+            - button "Add names" [ref=e45] [cursor=pointer]
+          - paragraph [ref=e47]: Press the button to pick a random name!
+          - button "Pick random name" [ref=e48] [cursor=pointer]
+          - generic [ref=e55]:
+            - heading "Settings" [level=3] [ref=e56]
+            - generic [ref=e57]:
+              - generic [ref=e58] [cursor=pointer]:
+                - checkbox "Remove name after picking" [ref=e59]
+                - text: Remove name after picking
+              - generic [ref=e60] [cursor=pointer]:
+                - checkbox "Allow duplicate results" [checked] [ref=e61]
+                - text: Allow duplicate results
+        - generic [ref=e63]:
+          - generic [ref=e64]:
+            - heading "List (5)" [level=3] [ref=e65]
+            - button "Clear all" [ref=e66] [cursor=pointer]
+          - generic [ref=e67]:
+            - generic [ref=e68]:
+              - generic [ref=e69]: Alice
+              - button "Remove Alice" [ref=e70] [cursor=pointer]
+            - generic [ref=e74]:
+              - generic [ref=e75]: Bob
+              - button "Remove Bob" [ref=e76] [cursor=pointer]
+            - generic [ref=e80]:
+              - generic [ref=e81]: Charlie
+              - button "Remove Charlie" [ref=e82] [cursor=pointer]
+            - generic [ref=e86]:
+              - generic [ref=e87]: David
+              - button "Remove David" [ref=e88] [cursor=pointer]
+            - generic [ref=e92]:
+              - generic [ref=e93]: Emma
+              - button "Remove Emma" [ref=e94] [cursor=pointer]
+      - generic [ref=e99]:
+        - heading "Popular use cases" [level=2] [ref=e100]
+        - generic [ref=e101]:
+          - generic [ref=e102] [cursor=pointer]: Student name drawing
+          - generic [ref=e103] [cursor=pointer]: Giveaway winner
+          - generic [ref=e104] [cursor=pointer]: Team captain selection
+          - generic [ref=e105] [cursor=pointer]: Meeting presenter order
+          - generic [ref=e106] [cursor=pointer]: Secret Santa
+          - generic [ref=e107] [cursor=pointer]: Game night first player
+  - contentinfo [ref=e108]:
+    - generic [ref=e109]:
+      - generic [ref=e110]:
+        - generic [ref=e111]:
+          - link "random.easy" [ref=e112] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=e118]: Free random decision and generation tools. Part of the easy ecosystem.
+          - link "easy.io.vn ↗" [ref=e119] [cursor=pointer]:
+            - /url: https://easy.io.vn
+        - generic [ref=e124]:
+          - heading "Tools" [level=3] [ref=e125]
+          - generic [ref=e126]:
+            - link "Spin the Wheel" [ref=e127] [cursor=pointer]:
+              - /url: /spin-the-wheel
+            - link "Random Name Picker" [ref=e128] [cursor=pointer]:
+              - /url: /random-name-picker
+            - link "Number Generator" [ref=e129] [cursor=pointer]:
+              - /url: /random-number-generator
+            - link "Team Generator" [ref=e130] [cursor=pointer]:
+              - /url: /random-team-generator
+            - link "Yes or No" [ref=e131] [cursor=pointer]:
+              - /url: /yes-or-no
+            - link "Coin Flip" [ref=e132] [cursor=pointer]:
+              - /url: /coin-flip
+        - generic [ref=e133]:
+          - heading "easy ecosystem" [level=3] [ref=e134]
+          - generic [ref=e135]:
+            - link "easy.io.vn Hub" [ref=e136] [cursor=pointer]:
+              - /url: https://easy.io.vn
+              - text: easy.io.vn
+              - generic [ref=e137]: Hub
+            - link "game.easy Games" [ref=e138] [cursor=pointer]:
+              - /url: https://game.easy.io.vn
+              - text: game.easy
+              - generic [ref=e139]: Games
+            - link "tools.easy Tools" [ref=e140] [cursor=pointer]:
+              - /url: https://tools.easy.io.vn
+              - text: tools.easy
+              - generic [ref=e141]: Tools
+        - generic [ref=e142]:
+          - heading "Info" [level=3] [ref=e143]
+          - generic [ref=e144]:
+            - link "About" [ref=e145] [cursor=pointer]:
+              - /url: /about
+            - link "Privacy Policy" [ref=e146] [cursor=pointer]:
+              - /url: /privacy
+            - link "Terms of Use" [ref=e147] [cursor=pointer]:
+              - /url: /terms
+      - generic [ref=e148]:
+        - paragraph [ref=e149]: © 2026 easy.io.vn — Dễ hơn mỗi ngày.
+        - paragraph [ref=e150]:
+          - text: random.easy is part of the
+          - link "easy" [ref=e151] [cursor=pointer]:
+            - /url: https://easy.io.vn
+          - text: ecosystem
+  - button "Open Next.js Dev Tools" [ref=e157] [cursor=pointer]
+  - alert [ref=e161]

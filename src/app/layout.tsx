@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ConsentAndMonetization } from "@/components/ConsentAndMonetization";
+import { siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "random.easy — Random anything, instantly. by easy",
     template: "%s | random.easy",
@@ -13,6 +16,9 @@ export const metadata: Metadata = {
     "random number generator", "coin flip", "team generator",
     "yes or no generator", "random easy", "easy tools",
   ],
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -24,7 +30,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "random.easy — Random anything, instantly.",
     description: "Free random generator tools by easy. No signup required.",
-    siteName: "random.easy by easy.io.vn",
+    siteName: `${siteName} by easy.io.vn`,
   },
   twitter: { card: "summary_large_image" },
 };
@@ -34,7 +40,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <ConsentAndMonetization />
+      </body>
     </html>
   );
 }

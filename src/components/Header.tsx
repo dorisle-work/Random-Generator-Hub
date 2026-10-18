@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import AuthButton from "@/components/AuthButton";
 
 /* Easy "e + smile" logo as inline SVG */
 function EasyLogo({ size = 36 }: { size?: number }) {
@@ -71,12 +72,11 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved === "dark") {
-      setDark(true);
-      document.documentElement.classList.add("dark");
-    }
-    // Default is always light — no prefers-color-scheme auto
+    const savedTheme = window.localStorage.getItem("theme");
+    const useDarkTheme = savedTheme === "dark";
+    document.documentElement.classList.toggle("dark", useDarkTheme);
+    const frame = window.requestAnimationFrame(() => setDark(useDarkTheme));
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   const toggleTheme = () => {
@@ -97,10 +97,7 @@ export default function Header() {
       zIndex: 50,
       backdropFilter: "blur(12px)",
     }}>
-      <div style={{
-        maxWidth: 1240,
-        margin: "0 auto",
-        padding: "0 24px",
+      <div className="site-container" style={{
         height: 68,
         display: "flex",
         alignItems: "center",
@@ -127,8 +124,8 @@ export default function Header() {
         {/* Desktop nav */}
         <nav style={{ display: "flex", alignItems: "center", gap: 6 }} className="hidden-mobile">
           <Link href="/" className="nav-link">Home</Link>
-          <Link href="/#tools" className="nav-link">Tools</Link>
-          <Link href="/#categories" className="nav-link">Categories</Link>
+          <Link href="/tools" className="nav-link">Tools</Link>
+          <Link href="/categories/random-picker" className="nav-link">Categories</Link>
           <a
             href="https://easy.io.vn"
             target="_blank"
@@ -150,9 +147,11 @@ export default function Header() {
 
         {/* Actions */}
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div className="hidden-mobile"><AuthButton /></div>
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
+            aria-pressed={dark}
             title={dark ? "Switch to light mode" : "Switch to dark mode"}
             style={{
               width: 42, height: 42,
@@ -171,6 +170,7 @@ export default function Header() {
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
+            aria-expanded={menuOpen}
             className="show-mobile"
             style={{
               width: 42, height: 42,
@@ -199,11 +199,14 @@ export default function Header() {
           gap: 8,
         }}>
           <Link href="/" className="nav-link" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link href="/#tools" className="nav-link" onClick={() => setMenuOpen(false)}>Tools</Link>
-          <Link href="/#categories" className="nav-link" onClick={() => setMenuOpen(false)}>Categories</Link>
+          <Link href="/tools" className="nav-link" onClick={() => setMenuOpen(false)}>Tools</Link>
+          <Link href="/categories/random-picker" className="nav-link" onClick={() => setMenuOpen(false)}>Categories</Link>
           <a href="https://easy.io.vn" target="_blank" rel="noopener noreferrer" className="nav-link">
             easy ecosystem ↗
           </a>
+          <div style={{ padding: "8px 14px" }}>
+            <AuthButton />
+          </div>
         </div>
       )}
 

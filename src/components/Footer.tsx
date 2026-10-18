@@ -1,5 +1,6 @@
-"use client";
 import Link from "next/link";
+import { PrivacyChoicesButton } from "@/components/ConsentAndMonetization";
+import { supportEmail } from "@/lib/site";
 
 function EasySymbol() {
   return (
@@ -38,7 +39,7 @@ export default function Footer() {
       padding: "56px 24px 36px",
       marginTop: 88,
     }}>
-      <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+      <div className="site-container">
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
@@ -154,6 +155,8 @@ export default function Footer() {
                   {l.name}
                 </Link>
               ))}
+              {supportEmail && <a href={`mailto:${supportEmail}`} style={{ color: "var(--text-muted)", textDecoration: "none", fontSize: "0.95rem", fontWeight: 500 }}>Contact</a>}
+              <PrivacyChoicesButton />
             </div>
           </div>
         </div>
@@ -168,7 +171,7 @@ export default function Footer() {
           gap: 14,
         }}>
           <p style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>
-            © {new Date().getFullYear()} easy.io.vn — Dễ hơn mỗi ngày.
+            © 2026 easy.io.vn — Dễ hơn mỗi ngày.
           </p>
           <p style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>
             random.easy is part of the{" "}

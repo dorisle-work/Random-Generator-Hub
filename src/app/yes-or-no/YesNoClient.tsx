@@ -1,9 +1,12 @@
 "use client";
 import { useState } from "react";
+import { pickRandom, randomInt } from "@/lib/random";
+import CopyResultButton from "@/components/CopyResultButton";
+import { IconHistory, IconPlay, IconYesNo } from "@/components/Icons";
 
-const YES_VARIANTS = ["YES! ✅", "Absolutely! 🎯", "Go for it! 🚀", "Definitely! 💪", "Yes, do it! ⚡"];
-const NO_VARIANTS = ["NO ❌", "Nope! 🚫", "Not this time! 😅", "Skip it! 🙅", "No way! 🛑"];
-const MAYBE_VARIANTS = ["Maybe... 🤔", "Ask again! 🔄", "Unclear! 🌫️"];
+const YES_VARIANTS = ["YES!", "Absolutely!", "Go for it!", "Definitely!", "Yes, do it!"];
+const NO_VARIANTS = ["NO", "Nope!", "Not this time!", "Skip it!", "No way!"];
+const MAYBE_VARIANTS = ["Maybe…", "Ask again!", "Unclear!"];
 
 export default function YesNoClient() {
   const [question, setQuestion] = useState("");
@@ -16,19 +19,19 @@ export default function YesNoClient() {
     setResult(null);
 
     setTimeout(() => {
-      const rand = Math.random();
+      const rand = randomInt(0, 99);
       let type: "yes" | "no" | "maybe";
       let text: string;
 
-      if (rand < 0.45) {
+      if (rand < 45) {
         type = "yes";
-        text = YES_VARIANTS[Math.floor(Math.random() * YES_VARIANTS.length)];
-      } else if (rand < 0.9) {
+        text = pickRandom(YES_VARIANTS) ?? "YES!";
+      } else if (rand < 90) {
         type = "no";
-        text = NO_VARIANTS[Math.floor(Math.random() * NO_VARIANTS.length)];
+        text = pickRandom(NO_VARIANTS) ?? "NO";
       } else {
         type = "maybe";
-        text = MAYBE_VARIANTS[Math.floor(Math.random() * MAYBE_VARIANTS.length)];
+        text = pickRandom(MAYBE_VARIANTS) ?? "Maybe";
       }
 
       setResult({ text, type });
@@ -48,7 +51,7 @@ export default function YesNoClient() {
       {/* Question input */}
       <div className="glass-card" style={{ padding: 32, marginBottom: 24 }}>
         <label style={{ fontWeight: 700, fontSize: "0.95rem", color: "var(--text)", display: "block", marginBottom: 12 }}>
-          🤔 What&apos;s your question?
+          <span className="button-content"><IconYesNo size={18} /> What&apos;s your question?</span>
         </label>
         <input
           id="yes-no-question"
@@ -66,14 +69,14 @@ export default function YesNoClient() {
           className="btn-primary"
           style={{ width: "100%", justifyContent: "center", fontSize: "1.1rem", padding: "16px" }}
         >
-          {animating ? "🤔 Thinking..." : "✨ Get Answer"}
+          <span className="button-content"><IconPlay size={18} /> {animating ? "Thinking…" : "Get answer"}</span>
         </button>
       </div>
 
       {/* Result */}
       {(result || animating) && (
         <div
-          className="glass-card animate-bounce-in"
+          className="glass-card animate-result"
           style={{
             padding: 48,
             textAlign: "center",
@@ -83,7 +86,7 @@ export default function YesNoClient() {
           }}
         >
           {animating ? (
-            <div style={{ fontSize: "4rem" }} className="animate-float">🎲</div>
+            <div className="animate-float" style={{ color: "#8675E8" }}><IconYesNo size={64} strokeWidth={1.25} /></div>
           ) : result ? (
             <>
               <div style={{
@@ -105,8 +108,13 @@ export default function YesNoClient() {
                 className="btn-secondary"
                 style={{ marginTop: 20 }}
               >
-                Ask Again 🔄
+                Ask again
               </button>
+              <CopyResultButton
+                text={question ? `${question}\n${result.text}` : result.text}
+                label="Copy answer"
+                style={{ marginTop: 12, padding: "9px 16px", fontSize: "0.82rem" }}
+              />
             </>
           ) : null}
         </div>
@@ -116,7 +124,7 @@ export default function YesNoClient() {
       {(count.yes + count.no + count.maybe) > 0 && (
         <div className="glass-card" style={{ padding: 20 }}>
           <h3 style={{ fontWeight: 700, fontSize: "0.9rem", marginBottom: 14, color: "var(--text)" }}>
-            📊 Your Session Stats
+            <span className="button-content"><IconHistory size={17} /> Your session stats</span>
           </h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
             {[
@@ -136,6 +144,9 @@ export default function YesNoClient() {
               </div>
             ))}
           </div>
+          <button type="button" className="text-button" style={{ marginTop: 14 }} onClick={() => { setCount({ yes: 0, no: 0, maybe: 0 }); setResult(null); }}>
+            Reset this session
+          </button>
         </div>
       )}
     </div>

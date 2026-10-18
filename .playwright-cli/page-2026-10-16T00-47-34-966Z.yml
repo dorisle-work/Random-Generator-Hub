@@ -1,0 +1,113 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "easy logo random.easy by easy.io.vn" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "easy logo" [ref=e5]
+        - generic [ref=e9]:
+          - generic [ref=e10]: random.easy
+          - generic [ref=e11]: by easy.io.vn
+      - navigation [ref=e12]:
+        - link "Home" [ref=e13] [cursor=pointer]:
+          - /url: /
+        - link "Tools" [ref=e14] [cursor=pointer]:
+          - /url: /#tools
+        - link "Categories" [ref=e15] [cursor=pointer]:
+          - /url: /#categories
+        - link "easy ecosystem ↗" [ref=e16] [cursor=pointer]:
+          - /url: https://easy.io.vn
+          - generic [ref=e17]: easy
+          - text: ecosystem ↗
+      - generic [ref=e18]:
+        - button "Continue with Google" [ref=e21] [cursor=pointer]
+        - button "Toggle theme" [ref=e22] [cursor=pointer]
+  - main [ref=e25]:
+    - generic [ref=e26]:
+      - navigation [ref=e27]:
+        - link "Home" [ref=e28] [cursor=pointer]:
+          - /url: /
+        - generic [aria-hidden] [ref=e29]: ›
+        - link "Random Picker" [ref=e30] [cursor=pointer]:
+          - /url: /#categories
+        - generic [aria-hidden] [ref=e31]: ›
+        - generic [ref=e32]: Team Generator
+      - generic [ref=e33]:
+        - heading "Random Team Generator" [level=1] [ref=e34]
+        - paragraph [ref=e35]: Enter names and split them into random balanced teams
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - heading "Participants (6)" [level=3] [ref=e39]
+          - textbox "Enter names (one per line) Alice Bob Charlie" [ref=e46]:
+            - /placeholder: "Enter names (one per line)\nAlice\nBob\nCharlie"
+            - text: Alice Bob Charlie David Emma Frank
+        - generic [ref=e48]:
+          - heading "Settings" [level=3] [ref=e49]
+          - generic [ref=e50]: "Number of teams: 2"
+          - slider [ref=e51]: "2"
+          - generic [ref=e52]:
+            - generic [ref=e53]: "2"
+            - generic [ref=e54]: "10"
+          - generic [ref=e55]: ≈ 3 members per team
+          - generic [ref=e56]:
+            - button "2 teams" [ref=e57] [cursor=pointer]
+            - button "3 teams" [ref=e58] [cursor=pointer]
+            - button "4 teams" [ref=e59] [cursor=pointer]
+            - button "5 teams" [ref=e60] [cursor=pointer]
+          - button "Generate teams" [ref=e61] [cursor=pointer]
+  - contentinfo [ref=e65]:
+    - generic [ref=e66]:
+      - generic [ref=e67]:
+        - generic [ref=e68]:
+          - link "random.easy" [ref=e69] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=e75]: Free random decision and generation tools. Part of the easy ecosystem.
+          - link "easy.io.vn ↗" [ref=e76] [cursor=pointer]:
+            - /url: https://easy.io.vn
+        - generic [ref=e81]:
+          - heading "Tools" [level=3] [ref=e82]
+          - generic [ref=e83]:
+            - link "Spin the Wheel" [ref=e84] [cursor=pointer]:
+              - /url: /spin-the-wheel
+            - link "Random Name Picker" [ref=e85] [cursor=pointer]:
+              - /url: /random-name-picker
+            - link "Number Generator" [ref=e86] [cursor=pointer]:
+              - /url: /random-number-generator
+            - link "Team Generator" [ref=e87] [cursor=pointer]:
+              - /url: /random-team-generator
+            - link "Yes or No" [ref=e88] [cursor=pointer]:
+              - /url: /yes-or-no
+            - link "Coin Flip" [ref=e89] [cursor=pointer]:
+              - /url: /coin-flip
+        - generic [ref=e90]:
+          - heading "easy ecosystem" [level=3] [ref=e91]
+          - generic [ref=e92]:
+            - link "easy.io.vn Hub" [ref=e93] [cursor=pointer]:
+              - /url: https://easy.io.vn
+              - text: easy.io.vn
+              - generic [ref=e94]: Hub
+            - link "game.easy Games" [ref=e95] [cursor=pointer]:
+              - /url: https://game.easy.io.vn
+              - text: game.easy
+              - generic [ref=e96]: Games
+            - link "tools.easy Tools" [ref=e97] [cursor=pointer]:
+              - /url: https://tools.easy.io.vn
+              - text: tools.easy
+              - generic [ref=e98]: Tools
+        - generic [ref=e99]:
+          - heading "Info" [level=3] [ref=e100]
+          - generic [ref=e101]:
+            - link "About" [ref=e102] [cursor=pointer]:
+              - /url: /about
+            - link "Privacy Policy" [ref=e103] [cursor=pointer]:
+              - /url: /privacy
+            - link "Terms of Use" [ref=e104] [cursor=pointer]:
+              - /url: /terms
+      - generic [ref=e105]:
+        - paragraph [ref=e106]: © 2026 easy.io.vn — Dễ hơn mỗi ngày.
+        - paragraph [ref=e107]:
+          - text: random.easy is part of the
+          - link "easy" [ref=e108] [cursor=pointer]:
+            - /url: https://easy.io.vn
+          - text: ecosystem
+  - button "Open Next.js Dev Tools" [ref=e114] [cursor=pointer]
+  - alert [ref=e118]

@@ -1,5 +1,8 @@
 "use client";
 import { useState } from "react";
+import { randomInt, shuffle } from "@/lib/random";
+import CopyResultButton from "@/components/CopyResultButton";
+import { IconHash, IconHistory, IconPlay } from "@/components/Icons";
 
 export default function NumberGeneratorClient() {
   const [min, setMin] = useState(1);
@@ -10,11 +13,13 @@ export default function NumberGeneratorClient() {
   const [generating, setGenerating] = useState(false);
   const [history, setHistory] = useState<number[][]>([]);
   const [animatingResult, setAnimatingResult] = useState<number | null>(null);
+  const rangeSize = max - min + 1;
+  const hasValidRange = Number.isInteger(min) && Number.isInteger(max) && min < max && rangeSize <= 1_000_000;
+  const canGenerate = hasValidRange && (allowDupes || count <= rangeSize);
 
   const generate = () => {
     if (generating) return;
-    if (min >= max) return;
-    if (!allowDupes && count > (max - min + 1)) return;
+    if (!canGenerate) return;
 
     setGenerating(true);
     setResults([]);
@@ -24,19 +29,19 @@ export default function NumberGeneratorClient() {
     const interval = setInterval(() => {
       const preview: number[] = [];
       for (let i = 0; i < Math.min(count, 5); i++) {
-        preview.push(Math.floor(Math.random() * (max - min + 1)) + min);
+        preview.push(randomInt(min, max));
       }
       setAnimatingResult(preview[0]);
       ticks++;
       if (ticks >= 15) {
         clearInterval(interval);
         // Real generation
-        const pool = Array.from({ length: max - min + 1 }, (_, i) => i + min);
+        const pool = Array.from({ length: rangeSize }, (_, i) => i + min);
         const picked: number[] = [];
-        const shuffled = allowDupes ? pool : pool.sort(() => Math.random() - 0.5);
+        const shuffled = allowDupes ? pool : shuffle(pool);
         for (let i = 0; i < count; i++) {
           if (allowDupes) {
-            picked.push(Math.floor(Math.random() * (max - min + 1)) + min);
+            picked.push(randomInt(min, max));
           } else {
             picked.push(shuffled[i]);
           }
@@ -50,6 +55,11 @@ export default function NumberGeneratorClient() {
   };
 
   const isSingle = count === 1;
+  const resetSession = () => {
+    setResults([]);
+    setHistory([]);
+    setAnimatingResult(null);
+  };
 
   return (
     <div style={{ maxWidth: 600, margin: "0 auto" }}>
@@ -113,16 +123,21 @@ export default function NumberGeneratorClient() {
         <button
           id="generate-number-button"
           onClick={generate}
-          disabled={generating || min >= max}
+          disabled={generating || !canGenerate}
           className="btn-primary"
           style={{ width: "100%", justifyContent: "center", fontSize: "1.1rem", padding: "16px" }}
         >
-          {generating ? "🎲 Generating..." : "🔢 Generate"}
+          <span className="button-content"><IconPlay size={18} /> {generating ? "Generating…" : "Generate"}</span>
         </button>
 
-        {min >= max && (
+        {!hasValidRange && (
           <p style={{ color: "#EF4444", fontSize: "0.82rem", marginTop: 8, textAlign: "center" }}>
-            Minimum must be less than Maximum
+            Use whole numbers with a range from 2 to 1,000,000 values.
+          </p>
+        )}
+        {hasValidRange && !allowDupes && count > rangeSize && (
+          <p style={{ color: "#EF4444", fontSize: "0.82rem", marginTop: 8, textAlign: "center" }}>
+            Choose fewer results or allow duplicates.
           </p>
         )}
       </div>
@@ -141,24 +156,30 @@ export default function NumberGeneratorClient() {
               {animatingResult ?? "..."}
             </div>
           ) : (
-            results.map((n, i) => (
-              <div
-                key={i}
-                className="animate-bounce-in"
-                style={{
-                  fontSize: isSingle ? "5rem" : count <= 5 ? "3rem" : "2rem",
-                  fontWeight: 900,
-                  color: "var(--primary)",
-                  padding: isSingle ? "0" : "8px 16px",
-                  background: isSingle ? "transparent" : "rgba(99,91,255,0.1)",
-                  borderRadius: 12,
-                  lineHeight: 1,
-                  animationDelay: `${i * 0.05}s`,
-                }}
-              >
-                {n}
+            <>
+              {results.map((n, i) => (
+                <div
+                  key={i}
+                  className="animate-result"
+                  style={{
+                    fontSize: isSingle ? "5rem" : count <= 5 ? "3rem" : "2rem",
+                    fontWeight: 900,
+                    color: "var(--primary)",
+                    padding: isSingle ? "0" : "8px 16px",
+                    background: isSingle ? "transparent" : "rgba(99,91,255,0.1)",
+                    borderRadius: 12,
+                    lineHeight: 1,
+                    animationDelay: `${i * 0.05}s`,
+                  }}
+                >
+                  {n}
+                </div>
+              ))}
+              <div className="result-actions">
+                <CopyResultButton text={results.join(", ")} label="Copy numbers" style={{ padding: "8px 14px", fontSize: "0.8rem" }} />
+                <button type="button" className="text-button" onClick={resetSession}>Clear session</button>
               </div>
-            ))
+            </>
           )}
         </div>
       )}
@@ -166,7 +187,7 @@ export default function NumberGeneratorClient() {
       {/* Quick presets */}
       <div className="glass-card" style={{ padding: 20, marginBottom: 20 }}>
         <h3 style={{ fontWeight: 700, fontSize: "0.88rem", marginBottom: 12, color: "var(--text)" }}>
-          ⚡ Quick Presets
+          <span className="button-content"><IconHash size={17} /> Quick presets</span>
         </h3>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
           {[
@@ -190,7 +211,7 @@ export default function NumberGeneratorClient() {
       {/* History */}
       {history.length > 0 && (
         <div className="glass-card" style={{ padding: 20 }}>
-          <h3 style={{ fontWeight: 700, fontSize: "0.88rem", marginBottom: 10, color: "var(--text)" }}>📋 History</h3>
+          <h3 style={{ fontWeight: 700, fontSize: "0.88rem", marginBottom: 10, color: "var(--text)" }}><span className="button-content"><IconHistory size={17} /> History</span></h3>
           {history.map((entry, i) => (
             <div key={i} className="history-item" style={{ marginBottom: 6 }}>
               <span style={{ color: "var(--primary)", fontWeight: 600, fontSize: "0.8rem" }}>#{i + 1}</span>

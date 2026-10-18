@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroSearch from "@/components/HeroSearch";
+import { AdSlot } from "@/components/ConsentAndMonetization";
 import {
   IconWheel, IconUser, IconHash, IconTeam, IconYesNo, IconCoin,
 } from "@/components/Icons";
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
   title: "random.easy — Random anything, instantly.",
   description:
     "Free random generator tools by easy. Spin the Wheel, Random Name Picker, Number Generator, Team Generator, Coin Flip & more. No signup required.",
+  alternates: { canonical: "/" },
 };
 
 const tools = [
@@ -59,12 +61,10 @@ const tools = [
 ];
 
 const categories = [
-  { label: "Random Picker",  desc: "Wheel, names, and number generators" },
-  { label: "Education",      desc: "Classroom activities, student picker" },
-  { label: "Entertainment",  desc: "Party games, food, movie night picks" },
-  { label: "Creative & Dev", desc: "Colors, passwords, random UUIDs" },
-  { label: "Productivity",   desc: "Team assignments, tasks, icebreakers" },
-  { label: "Fun & Games",    desc: "Coin flip, yes/no, quick decisions" },
+  { label: "Random Picker",  desc: "Wheel, names, and number generators", href: "/categories/random-picker" },
+  { label: "Education",      desc: "Classroom activities, student picker", href: "/categories/education" },
+  { label: "Entertainment",  desc: "Party games, food, movie night picks", href: "/categories/entertainment" },
+  { label: "Productivity",   desc: "Team assignments, tasks, icebreakers", href: "/categories/productivity" },
 ];
 
 export default function Home() {
@@ -74,7 +74,7 @@ export default function Home() {
       <main>
 
         {/* ── Hero ───────────────────────────────────────────── */}
-        <section style={{ padding: "72px 24px 56px", position: "relative", overflow: "hidden" }}>
+        <section className="home-hero" style={{ padding: "72px 24px 56px", position: "relative", overflow: "hidden" }}>
           {/* subtle lime glow */}
           <div style={{
             position: "absolute", top: -120, right: -80, width: 560, height: 560,
@@ -84,26 +84,6 @@ export default function Home() {
           }} />
 
           <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center", position: "relative" }}>
-
-            {/* eyebrow badge */}
-            <div style={{
-              display: "inline-flex", alignItems: "center", gap: 8,
-              background: "#C7F43D",
-              borderRadius: "999px",
-              padding: "5px 16px 5px 8px",
-              marginBottom: 28,
-              boxShadow: "0 2px 10px rgba(199,244,61,0.35)",
-            }}>
-              <span style={{
-                background: "#161713", color: "#C7F43D",
-                borderRadius: "999px", padding: "3px 11px",
-                fontSize: "0.78rem", fontWeight: 800,
-                letterSpacing: "-0.01em",
-              }}>easy</span>
-              <span style={{ fontSize: "0.88rem", fontWeight: 700, color: "#161713" }}>
-                tools · 100% Free · No signup required
-              </span>
-            </div>
 
             {/* Heading */}
             <h1 style={{
@@ -128,7 +108,7 @@ export default function Home() {
             </h1>
 
             {/* Subheading */}
-            <p style={{
+            <p className="home-section-copy" style={{
               fontSize: "1.18rem",
               color: "var(--text-muted)",
               lineHeight: 1.65,
@@ -166,12 +146,12 @@ export default function Home() {
         </section>
 
         {/* ── Tools Grid ─────────────────────────────────────── */}
-        <section id="tools" style={{ padding: "0 24px 68px", maxWidth: 1240, margin: "0 auto" }}>
+        <section id="tools" className="site-container home-section" style={{ padding: "0 0 68px" }}>
 
           {/* Section header */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 28 }}>
+          <div className="home-section-header" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 28 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-              <h2 style={{
+              <h2 className="home-section-title" style={{
                 fontSize: "1.75rem",
                 fontWeight: 800,
                 color: "var(--text)",
@@ -190,7 +170,7 @@ export default function Home() {
           </div>
 
           {/* Grid - 3 columns on desktop with generous breathing room */}
-          <div style={{
+          <div className="home-tools-grid" style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
             gap: 22,
@@ -200,6 +180,7 @@ export default function Home() {
                 key={href}
                 href={href}
                 className="tool-card"
+                data-tool-search={`${name} ${desc}`.toLowerCase()}
                 style={{ animationDelay: `${i * 0.05}s` }}
               >
                 {/* icon + badge row */}
@@ -272,17 +253,23 @@ export default function Home() {
               </Link>
             ))}
           </div>
+          <div id="tool-search-status" className="empty-search" role="status" hidden>
+              <strong>No matching tool yet.</strong>
+              <span>Try “wheel”, “team”, “name”, “number”, “coin”, or “yes”.</span>
+              <Link href="/#tools">Clear search</Link>
+          </div>
+          <AdSlot slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME_INLINE} className="home-ad-slot" />
         </section>
 
         {/* ── Categories ─────────────────────────────────────── */}
         <section id="categories" style={{
-          padding: "56px 24px 72px",
+          padding: "56px 0 72px",
           background: "var(--bg-elevated)",
         }}>
-          <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+          <div className="site-container">
 
             <div style={{ marginBottom: 32 }}>
-              <h2 style={{
+              <h2 className="home-section-title" style={{
                 fontSize: "1.75rem",
                 fontWeight: 800,
                 color: "var(--text)",
@@ -291,21 +278,14 @@ export default function Home() {
               }}>
                 Browse by Category
               </h2>
-              <p style={{ fontSize: "1.0625rem", color: "var(--text-muted)", fontWeight: 400 }}>
+              <p className="home-section-copy" style={{ fontSize: "1.0625rem", color: "var(--text-muted)", fontWeight: 400 }}>
                 Find the right generator tool designed for your everyday task
               </p>
             </div>
 
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-              gap: 16,
-            }}>
+            <div className="category-grid">
               {categories.map((cat) => (
-                <div key={cat.label} className="easy-card" style={{
-                  padding: "22px 20px",
-                  cursor: "pointer",
-                }}>
+                <Link key={cat.label} href={cat.href} className="category-item">
                   <h3 style={{
                     fontWeight: 700,
                     fontSize: "1.125rem",
@@ -318,15 +298,15 @@ export default function Home() {
                   <p style={{ fontSize: "0.92rem", color: "var(--text-muted)", lineHeight: 1.5, fontWeight: 400 }}>
                     {cat.desc}
                   </p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
         </section>
 
         {/* ── CTA ────────────────────────────────────────────── */}
-        <section style={{ padding: "52px 24px 28px", maxWidth: 1240, margin: "0 auto" }}>
-          <div style={{
+        <section className="site-container home-section" style={{ padding: "52px 0 28px" }}>
+          <div className="home-cta" style={{
             background: "#C7F43D",
             borderRadius: "var(--radius-lg)",
             padding: "48px 44px",
@@ -358,7 +338,7 @@ export default function Home() {
                 Pick a tool and let randomness make your decision in seconds.
               </p>
             </div>
-            <Link href="/spin-the-wheel" style={{
+            <Link href="/spin-the-wheel" className="home-cta-action" style={{
               display: "inline-flex", alignItems: "center", gap: 10,
               background: "#161713", color: "#C7F43D",
               padding: "16px 32px",

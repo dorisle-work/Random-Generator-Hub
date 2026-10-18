@@ -1,0 +1,150 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "easy logo random.easy by easy.io.vn" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "easy logo" [ref=e5]
+        - generic [ref=e9]:
+          - generic [ref=e10]: random.easy
+          - generic [ref=e11]: by easy.io.vn
+      - generic [ref=e18]:
+        - button "Toggle theme" [ref=e22] [cursor=pointer]
+        - button "Menu" [ref=e197] [cursor=pointer]
+  - main [ref=e25]:
+    - generic [ref=e26]:
+      - navigation [ref=e27]:
+        - link "Home" [ref=e28] [cursor=pointer]:
+          - /url: /
+        - generic [aria-hidden] [ref=e29]: ›
+        - link "Random Picker" [ref=e30] [cursor=pointer]:
+          - /url: /categories/random-picker
+        - generic [aria-hidden] [ref=e31]: ›
+        - generic [ref=e32]: Spin the Wheel
+      - generic [ref=e33]:
+        - heading "Spin the Wheel" [level=1] [ref=e34]
+        - paragraph [ref=e35]: Add your choices and let the wheel decide!
+      - generic [ref=e36]:
+        - button "Spin wheel" [ref=e42] [cursor=pointer]
+        - generic [ref=e47]:
+          - heading "Your choices" [level=3] [ref=e48]
+          - generic [ref=e54]:
+            - textbox "Add choice..." [ref=e55]
+            - button "Add choices" [active] [ref=e56] [cursor=pointer]
+          - paragraph [ref=e58]: "Tip: separate multiple with commas"
+          - generic [ref=e59]:
+            - generic [ref=e60]:
+              - generic [ref=e62]: Pizza
+              - button "Remove Pizza" [ref=e63] [cursor=pointer]
+            - generic [ref=e67]:
+              - generic [ref=e69]: Burger
+              - button "Remove Burger" [ref=e70] [cursor=pointer]
+            - generic [ref=e74]:
+              - generic [ref=e76]: Sushi
+              - button "Remove Sushi" [ref=e77] [cursor=pointer]
+            - generic [ref=e81]:
+              - generic [ref=e83]: Ramen
+              - button "Remove Ramen" [ref=e84] [cursor=pointer]
+            - generic [ref=e88]:
+              - generic [ref=e90]: Hotpot
+              - button "Remove Hotpot" [ref=e91] [cursor=pointer]
+            - generic [ref=e199]:
+              - generic [ref=e201]: Tea
+              - button "Remove Tea" [ref=e202] [cursor=pointer]
+            - generic [ref=e206]:
+              - generic [ref=e208]: Coffee
+              - button "Remove Coffee" [ref=e209] [cursor=pointer]
+          - button "Clear choices" [ref=e95] [cursor=pointer]
+          - generic [ref=e96]:
+            - generic [ref=e97] [cursor=pointer]:
+              - checkbox "Sound" [checked] [ref=e98]
+              - text: Sound
+            - generic [ref=e103]:
+              - button "Load" [ref=e104] [cursor=pointer]
+              - button "Save" [ref=e109] [cursor=pointer]
+              - button "Delete saved cloud copy" [ref=e114] [cursor=pointer]
+      - region "Guide for spin-the-wheel" [ref=e118]:
+        - generic [ref=e119]:
+          - heading "Make a fair choice, faster" [level=2] [ref=e120]
+          - paragraph [ref=e121]: A wheel is best when everyone should be able to see the same transparent random choice. Add choices, spin, and keep or remove the winner for the next round.
+        - generic [ref=e122]:
+          - generic [ref=e123]:
+            - heading "How to use it" [level=3] [ref=e124]
+            - list [ref=e125]:
+              - listitem [ref=e126]: Add one or more choices, separated by commas.
+              - listitem [ref=e127]: Review the list and remove anything you do not want included.
+              - listitem [ref=e128]: Spin the wheel, then save the list to your cloud account if you want to reuse it.
+          - generic [ref=e129]:
+            - heading "Popular uses" [level=3] [ref=e130]
+            - list [ref=e131]:
+              - listitem [ref=e132]: Choose a classroom activity
+              - listitem [ref=e133]: Pick a lunch option with friends
+              - listitem [ref=e134]: Select a giveaway winner
+        - generic [ref=e135]:
+          - heading "Questions people ask" [level=2] [ref=e136]
+          - group [ref=e137]:
+            - generic "Can I reuse a wheel? +" [ref=e138] [cursor=pointer]
+          - group [ref=e139]:
+            - generic "Can I remove a winner? +" [ref=e140] [cursor=pointer]
+        - paragraph [ref=e141]:
+          - text: Looking for another way to choose?
+          - link "Browse all free random tools" [ref=e142] [cursor=pointer]:
+            - /url: /tools
+          - text: .
+  - contentinfo [ref=e143]:
+    - generic [ref=e144]:
+      - generic [ref=e145]:
+        - generic [ref=e146]:
+          - link "random.easy" [ref=e147] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=e153]: Free random decision and generation tools. Part of the easy ecosystem.
+          - link "easy.io.vn ↗" [ref=e154] [cursor=pointer]:
+            - /url: https://easy.io.vn
+        - generic [ref=e159]:
+          - heading "Tools" [level=3] [ref=e160]
+          - generic [ref=e161]:
+            - link "Spin the Wheel" [ref=e162] [cursor=pointer]:
+              - /url: /spin-the-wheel
+            - link "Random Name Picker" [ref=e163] [cursor=pointer]:
+              - /url: /random-name-picker
+            - link "Number Generator" [ref=e164] [cursor=pointer]:
+              - /url: /random-number-generator
+            - link "Team Generator" [ref=e165] [cursor=pointer]:
+              - /url: /random-team-generator
+            - link "Yes or No" [ref=e166] [cursor=pointer]:
+              - /url: /yes-or-no
+            - link "Coin Flip" [ref=e167] [cursor=pointer]:
+              - /url: /coin-flip
+        - generic [ref=e168]:
+          - heading "easy ecosystem" [level=3] [ref=e169]
+          - generic [ref=e170]:
+            - link "easy.io.vn Hub" [ref=e171] [cursor=pointer]:
+              - /url: https://easy.io.vn
+              - text: easy.io.vn
+              - generic [ref=e172]: Hub
+            - link "game.easy Games" [ref=e173] [cursor=pointer]:
+              - /url: https://game.easy.io.vn
+              - text: game.easy
+              - generic [ref=e174]: Games
+            - link "tools.easy Tools" [ref=e175] [cursor=pointer]:
+              - /url: https://tools.easy.io.vn
+              - text: tools.easy
+              - generic [ref=e176]: Tools
+        - generic [ref=e177]:
+          - heading "Info" [level=3] [ref=e178]
+          - generic [ref=e179]:
+            - link "About" [ref=e180] [cursor=pointer]:
+              - /url: /about
+            - link "Privacy Policy" [ref=e181] [cursor=pointer]:
+              - /url: /privacy
+            - link "Terms of Use" [ref=e182] [cursor=pointer]:
+              - /url: /terms
+            - button "Privacy choices" [ref=e183] [cursor=pointer]
+      - generic [ref=e184]:
+        - paragraph [ref=e185]: © 2026 easy.io.vn — Dễ hơn mỗi ngày.
+        - paragraph [ref=e186]:
+          - text: random.easy is part of the
+          - link "easy" [ref=e187] [cursor=pointer]:
+            - /url: https://easy.io.vn
+          - text: ecosystem
+  - button "Open Next.js Dev Tools" [ref=e193] [cursor=pointer]
+  - alert [ref=e213]
