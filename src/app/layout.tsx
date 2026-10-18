@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { ConsentAndMonetization } from "@/components/ConsentAndMonetization";
 import { siteName, siteUrl } from "@/lib/site";
+
+// Publisher IDs are designed to be public. The environment value lets each
+// deployment override this, while the fallback keeps the verification tag in
+// every production build (including static/Vercel builds without env config).
+const adsenseClient =
+  process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? "ca-pub-2110256511208643";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -18,6 +25,10 @@ export const metadata: Metadata = {
   ],
   verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
     ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
+  // Lets AdSense identify this site during its verification and review flow.
+  other: adsenseClient
+    ? { "google-adsense-account": adsenseClient }
     : undefined,
   icons: {
     icon: [
@@ -44,6 +55,13 @@ export default function RootLayout({
         {children}
         <ConsentAndMonetization />
       </body>
+      <Script
+        id="adsense-script"
+        async
+        strategy="afterInteractive"
+        crossOrigin="anonymous"
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+      />
     </html>
   );
 }

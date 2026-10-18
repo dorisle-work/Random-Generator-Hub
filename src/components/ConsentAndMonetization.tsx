@@ -1,14 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Script from "next/script";
 import Link from "next/link";
+import Script from "next/script";
 
 type ConsentChoice = "accepted" | "essential";
 
 const consentKey = "random-easy:consent";
 const consentCookieName = "random_easy_consent";
-const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+// Publisher IDs are public identifiers. Keep the fallback in sync with the
+// verification tag in the root layout so ad slots work in static deployments.
+const adsenseClient =
+  process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? "ca-pub-2110256511208643";
 const analyticsId = process.env.NEXT_PUBLIC_GA_ID;
 
 function readConsent() {
@@ -48,15 +51,6 @@ export function ConsentAndMonetization() {
 
   return (
     <>
-      {choice === "accepted" && adsenseClient && (
-        <Script
-          id="adsense-script"
-          async
-          strategy="afterInteractive"
-          crossOrigin="anonymous"
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
-        />
-      )}
       {choice === "accepted" && analyticsId && (
         <>
           <Script id="google-analytics-loader" strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`} />
@@ -68,7 +62,7 @@ export function ConsentAndMonetization() {
       {ready && isConfigured && choice === null && (
         <aside className="consent-banner" aria-label="Privacy choices">
           <p>
-            We use optional advertising and measurement technologies to keep these tools free. You can continue with essential storage only.
+            We use optional advertising placements and measurement technologies to keep these tools free. You can continue with essential storage only.
             {" "}<Link href="/privacy">Learn how we use data</Link>.
           </p>
           <div className="consent-actions">
