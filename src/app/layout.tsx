@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 import { ConsentAndMonetization } from "@/components/ConsentAndMonetization";
 import { siteName, siteUrl } from "@/lib/site";
@@ -55,13 +54,6 @@ export default function RootLayout({
         {children}
         <ConsentAndMonetization />
       </body>
-      <Script
-        id="adsense-script"
-        async
-        strategy="afterInteractive"
-        crossOrigin="anonymous"
-        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
-      />
     </html>
   );
 }

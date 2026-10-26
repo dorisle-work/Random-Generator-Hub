@@ -51,6 +51,15 @@ export function ConsentAndMonetization() {
 
   return (
     <>
+      {choice === "accepted" && adsenseClient && (
+        <Script
+          id="adsense-script"
+          async
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+        />
+      )}
       {choice === "accepted" && analyticsId && (
         <>
           <Script id="google-analytics-loader" strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`} />
