@@ -190,7 +190,16 @@ export default function SpinWheelClient() {
     setResult(null);
     if (soundEnabled) playSound(360, 0.07);
 
-    const totalRotation = randomInt(1440, 2880); // 4-8 full spins
+    // Select the winning slice before the animation. The final rotation is then
+    // calculated to land its centre under the pointer, so each list position
+    // gets exactly one equally likely draw rather than relying on pixel/angle rounding.
+    const winnerIndex = randomInt(0, items.length - 1);
+    const slice = (2 * Math.PI) / items.length;
+    const targetPointerAngle = winnerIndex * slice + slice / 2;
+    const currentAngle = ((angleRef.current % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+    const targetAngle = ((Math.PI / 2 - targetPointerAngle) + 2 * Math.PI) % (2 * Math.PI);
+    const remainingAngle = ((targetAngle - currentAngle) + 2 * Math.PI) % (2 * Math.PI);
+    const totalRotation = remainingAngle + randomInt(4, 8) * 2 * Math.PI;
     const duration = randomInt(4000, 6000);
     const startAngle = angleRef.current;
     const startTime = performance.now();
@@ -201,7 +210,7 @@ export default function SpinWheelClient() {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const eased = ease(progress);
-      const angle = startAngle + totalRotation * eased * (Math.PI / 180);
+      const angle = startAngle + totalRotation * eased;
       angleRef.current = angle;
       setCurrentAngle(angle);
       drawWheel(angle);
@@ -210,7 +219,6 @@ export default function SpinWheelClient() {
         animRef.current = requestAnimationFrame(animate);
       } else {
         // Calculate winner
-        const slice = (2 * Math.PI) / items.length;
         const normalized = ((angle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
         const pointerAngle = (2 * Math.PI - normalized + Math.PI / 2) % (2 * Math.PI);
         const winnerIdx = Math.floor(pointerAngle / slice) % items.length;

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { PrivacyChoicesButton } from "@/components/ConsentAndMonetization";
-import { supportEmail } from "@/lib/site";
 
 function EasySymbol() {
   return (
@@ -143,6 +142,8 @@ export default function Footer() {
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {[
                 { name: "About", href: "/about" },
+                { name: "How random.easy works", href: "/how-random-works" },
+                { name: "Contact", href: "/contact" },
                 { name: "Privacy Policy", href: "/privacy" },
                 { name: "Terms of Use", href: "/terms" },
               ].map((l) => (
@@ -155,7 +156,6 @@ export default function Footer() {
                   {l.name}
                 </Link>
               ))}
-              {supportEmail && <a href={`mailto:${supportEmail}`} style={{ color: "var(--text-muted)", textDecoration: "none", fontSize: "0.95rem", fontWeight: 500 }}>Contact</a>}
               <PrivacyChoicesButton />
             </div>
           </div>
